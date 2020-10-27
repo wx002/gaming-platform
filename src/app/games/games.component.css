@@ -1,0 +1,46 @@
+.container {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.navigation {
+  width: 90%;
+  margin: 0 auto;
+  /* display: inline-block; */
+}
+
+button {
+  float: right;
+}
+
+nav ul {
+  margin: 0 auto;
+  padding: 0;
+  list-style: none;
+  border-style: solid;
+  border-width: .5px;
+}
+
+nav li {
+  padding: 7px;
+  display: inline-block;
+}
+
+nav a {
+  text-decoration: none;
+}
+
+h3 {
+  padding:5px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+ul {
+  margin: 0 auto;
+  list-style: none;
+}
+
+ul#menu li {
+  display:inline;
+}
