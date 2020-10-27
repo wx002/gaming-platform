@@ -10,6 +10,7 @@ import { ListsComponent } from './lists/lists.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
