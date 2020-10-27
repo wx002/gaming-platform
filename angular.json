@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MyGameList"
+    }
+  },
+  "defaultProject": "MyGameList",
+  "cli": {
+    "analytics": "d7b79342-0c30-4765-be34-f7c9b076d1f1"
+  }
 }

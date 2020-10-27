@@ -1,0 +1,29 @@
+.container {
+    width: 95%;
+    margin: 0 auto;
+    padding: 5px;
+  }
+  
+  .navigation {
+    width: 90%;
+    margin: 0 auto;
+  }
+  
+  .header button {
+    margin-left: 10px;
+    float: right;
+  }
+
+  nav ul {
+    padding: 0;
+    list-style: none;
+  }
+  
+  nav li {
+    padding: 7px;
+    display: inline-block;
+  }
+  
+  nav a {
+    text-decoration: none;
+  }
