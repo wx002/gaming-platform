@@ -1,1 +1,142 @@
-<p>lists works!</p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Lists</title>
+
+      </head>
+
+      <body ng-app="app">
+
+
+        <header class="container">
+          <div class="header">
+            <h1>My Game List
+              <button type="button" class="btn btn-secondary btn-sm">Profile</button>
+              <button type="button" class="btn btn-secondary btn-sm">Join now</button>
+              <button type="button" class="btn btn-secondary btn-sm">Login</button>
+            </h1>
+          </div>
+        </header>
+        <div class="navigation">
+          <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <ul class= "navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/home']">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/games']">Games</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/userListing']">User Listing</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="hrefDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  My Games
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <a class="dropdown-item" [routerLink]="['/myGames']">My List</a>
+                  <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href= "About.html">About Us</a>
+              </li>
+              <li style="float:right">
+                <form class ="form-inline my-2 my-lg-0">
+                  <input class="form-control mr-sm-2" type = "Search" placeholder ="Search" aria-label="Search">
+                  <button class="btn btn-outline-success my-2 my-sm-0" type="submit ">Search</button>
+                </form>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="head-tag">
+        <p>
+          LISTS
+        </p>
+      </div>
+
+<div class="alpha-container">
+        <div class="index-tag">
+          <p>
+            Alphabetical Index:
+          </p>
+        </div>
+
+  <div class="link-container">
+    <ul>
+        <li><a href= "#">a</a></li>
+        <li><a href= "#">b</a></li>
+        <li><a href= "#">c</a></li>
+        <li><a href= "#">d</a></li>
+        <li><a href= "#">e</a></li>
+        <li><a href= "#">f</a></li>
+        <li><a href= "#">g</a></li>
+        <li><a href= "#">h</a></li>
+        <li><a href= "#">i</a></li>
+        <li><a href= "#">j</a></li>
+        <li><a href= "#">k</a></li>
+        <li><a href= "#">l</a></li>
+        <li><a href= "#">m</a></li>
+        <li><a href= "#">n</a></li>
+        <li><a href= "#">o</a></li>
+        <li><a href= "#">p</a></li>
+        <li><a href= "#">q</a></li>
+        <li><a href= "#">r</a></li>
+        <li><a href= "#">s</a></li>
+        <li><a href= "#">t</a></li>
+        <li><a href= "#">u</a></li>
+        <li><a href= "#">v</a></li>
+        <li><a href= "#">w</a></li>
+        <li><a href= "#">x</a></li>
+        <li><a href= "#">y</a></li>
+        <li><a href= "#">z</a></li>
+    </ul>
+</div>
+</div>
+
+<table>
+  <thead>
+    <th>User</th>
+    <th>Title</th>
+    <th>Description</th>
+  </thead>
+  <tbody>
+      <tr *ngFor="let list of lists">
+        <td>
+          <a href= "#">{{list.user}}</a>
+
+        </td>
+        <td>
+          <a href= "#">{{list.title}}</a>
+
+        </td>
+        <td>
+          {{list.description}}
+        </td>
+      </tr>
+  </tbody>
+
+
+</table>
+
+
+<footer>
+
+  <div class="wrapper">
+  <div class="pages-tag">
+    <p>Pages: </p>
+  </div>
+    <div class="pages-container">
+    <ul>
+        <li><a href= "#">1</a></li>
+    </ul>
+</div>
+</div>
+</footer>
+
+
+      </body>
+  </html>
