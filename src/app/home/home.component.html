@@ -1,1 +1,73 @@
-<p>home works!</p>
+<div class="jumbotron">
+  <div id="carousel" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active" data-interval="5000">
+        <img src="https://steamcdn-a.akamaihd.net/steam/apps/945360/header.jpg?t=1592601560" class="d-block w-100" alt="Among Us">
+      </div>
+      <div class="carousel-item" data-interval="5000">
+        <img src="https://steamcdn-a.akamaihd.net/steam/apps/739630/header.jpg?t=1600451822" class="d-block w-100" alt="Phasmophobia">
+      </div>
+      <div class="carousel-item">
+        <img src="https://steamcdn-a.akamaihd.net/steam/apps/219740/header.jpg?t=1602117150" class="d-block w-100" alt="Party Animals">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</div>
+
+<div class="recommendations">
+
+  <div class="row">
+    <div class="col">
+      <h3>Popular games</h3>
+    </div>
+    <div class="col">
+      <h3>public game lists</h3>
+    </div>
+  </div>
+
+  <div class="game_container">
+    <div class="row">
+      <div class="col">
+        <a [routerLink]="['/myGames']"><img src= "https://cdn-products.eneba.com/resized-products/InlPQPt7WRDHBRnySANJHVQrS2whLdUdTX9JB7djmGw_350x200_3x-0.jpeg"
+        width="120" height="120" alt= "Among Us"></a>
+        <a [routerLink]="['/myGames']"><img src= "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP2293-CUSA11587_00-SRBUNDLE00000004/1590593358000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000"
+        width="120" height="120" alt= "Slime Rancher"></a>
+      </div>
+      <div class="col">
+        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
+          width="120" height="120" alt= "UserProfile"></a>
+        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
+          width="120" height="120" alt= "UserProfile"></a>
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col">
+      <a [routerLink]="['/myGames']"><img src= "https://www.dailyesports.gg/wp-content/uploads/2019/10/League-of-Legends-Senna-Feature.png"
+        width="120" height="120" alt= "League of Legends"></a>
+      <a [routerLink]="['/myGames']"><img src= "https://steamcdn-a.akamaihd.net/steam/apps/739630/header.jpg?t=1600451822"
+        width="120" height="120" alt= "Phasmophobia"></a>
+      </div>
+      <div class="col">
+        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
+          width="120" height="120" alt= "UserProfile"></a>
+        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
+          width="120" height="120" alt= "UserProfile"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<div class="twitter">
+  <p>twitter external source for news</p>
+</div>
