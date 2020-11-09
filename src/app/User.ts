@@ -11,4 +11,8 @@ export class User{
   get(){
     return this.userInfo;
   }
+
+  clear(): void{
+    this.userInfo = {};
+  }
 }

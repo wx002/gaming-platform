@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   constructor(@Inject(DOCUMENT) private d: Document, private router: Router) {
-    const discordLogin = 'https://discord.com/api/oauth2/authorize?client_id=764530278793347122&redirect_uri=http%3A%2F%2Flocalhost%3A4200%2Flogin%2Fcallback&response_type=code&scope=identify%20email';
+    const baseURL = window.location.origin;
+    const discordLogin = `https://discord.com/api/oauth2/authorize?client_id=764530278793347122&redirect_uri=${encodeURIComponent(baseURL + '/login/callback')}&response_type=code&scope=identify%20email`;
     this.d.location.href = discordLogin;
   }
 

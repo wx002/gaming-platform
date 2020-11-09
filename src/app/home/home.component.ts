@@ -10,7 +10,6 @@ export class HomeComponent implements OnInit {
   public userInfo;
   constructor(u: User) {
     this.userInfo = JSON.stringify(u.get());
-    console.log(this.userInfo);
   }
 
   ngOnInit(): void {

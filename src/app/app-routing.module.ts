@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'userListing', component: ListsComponent},
   {path: 'myGames', component: MygamesComponent},
   {path: 'gameDisplay', component: GamedisplayComponent, children: [{
-    path: 'gameDisplay?=type', component: GamedisplayComponent
+    path: 'gameDisplay?game=type', component: GamedisplayComponent
   }]},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'login/callback', component: OauthLoginComponent, children: [{

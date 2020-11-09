@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../User';
 
 export class GameInfo {
   public cover: string;
@@ -16,8 +17,11 @@ export class GameInfo {
   styleUrls: ['./gamedisplay.component.css']
 })
 export class GamedisplayComponent implements OnInit {
-
-  constructor() {}
+  public userInfo;
+  constructor(u: User) {
+    this.userInfo = JSON.stringify(u.get());
+    console.log(this.userInfo);
+  }
 
   game = new GameInfo();
 

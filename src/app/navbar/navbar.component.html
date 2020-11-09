@@ -8,9 +8,13 @@
     <header class="container">
       <div class="header">
         <h1>My Game List
-          <button type="button" class="btn btn-secondary btn-sm">Profile</button>
-          <button type="button" class="btn btn-secondary btn-sm" (click)="login()">Join now</button>
-          <button type="button" class="btn btn-secondary btn-sm">Login</button>
+          <ng-template [ngIf]="isLogin()">
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Profile</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="logoff()"style="margin:5px;">Log Off</button>
+          </ng-template>
+          <ng-template [ngIf]="!isLogin()">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="login()">Login</button>
+          </ng-template>
         </h1>
       </div>
     </header>
@@ -27,22 +31,26 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/userListing']">User Listing</a>
           </li>
+          <!--
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/myGames']">My Games</a>
           </li>
-<!--          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="routerLinkDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          -->
+        <ng-template [ngIf]="isLogin()">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript: void(0);" id="routerLinkDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My Games
             </a>
             <div class="dropdown-menu" aria-labelledby="routerLinkDropdown">
               <a class="dropdown-item" [routerLink]="['/myGames']">My List</a>
-              <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a>
+              <a class="dropdown-item" [routerLink]="['/mylist']">My Followed Lists</a>
             </div>
-          </li>-->
-
+          </li>
+        </ng-template>
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/aboutus']">About Us</a>
           </li>
+
           <li style="float:right">
             <form class ="form-inline my-2 my-lg-0">
               <input class="form-control mr-sm-2" type = "Search" placeholder ="Search" aria-label="Search">
@@ -50,6 +58,15 @@
             </form>
           </li>
         </ul>
+        <ng-template [ngIf]="isLogin()">
+          <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+            <span class="navbar-text">
+              <b>Welcome, {{userInfo['username']}}!</b>
+            </span>
+          </li>
+        </ul>
+        </ng-template>
       </nav>
     </div>
 </body>
