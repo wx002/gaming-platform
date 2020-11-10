@@ -34,6 +34,7 @@ export class OauthLoginComponent implements OnInit {
     const cid = this.oauthData[`client_id`];
     const secret = this.oauthData[`client_secret`];
     const codeExchange = this.getAccessCode();
+    console.log(`code = ${codeExchange}`);
 
     // post data setup for token exchange
     const data = {
@@ -49,6 +50,7 @@ export class OauthLoginComponent implements OnInit {
     };
 
     // fetch the token via POST request
+    console.log('posting....');
     fetch('https://discord.com/api/oauth2/token', {
       method: 'POST',
       body: new URLSearchParams(data),
