@@ -23,7 +23,7 @@ const routes: Routes = [
   }]},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'login/callback', component: OauthLoginComponent, children: [{
-    path: 'login/callback/:code', component: OauthLoginComponent
+    path: 'login/callback?code=type', component: OauthLoginComponent
   }]},
   {path: 'debug', component: DebugComponent},
   {path: 'login', component: LoginComponent}

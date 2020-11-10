@@ -40,7 +40,7 @@ export class OauthLoginComponent implements OnInit {
       client_id: cid,
       client_secret: secret,
       grant_type: 'authorization_code',
-      redirect_uri: window.location.origin + '/login/callback',
+      redirect_uri: window.location.origin + '/gaming-platform/login/callback',
       code: codeExchange,
       scope: 'identify email',
     };
