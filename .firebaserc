@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "gaming-platform-de4f3": {
+      "hosting": {
+        "MyGameList": [
+          "gaming-platform-de4f3"
+        ]
+      }
+    }
+  }
+}

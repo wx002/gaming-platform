@@ -11,14 +11,15 @@ export class ListsComponent implements OnInit {
   title: string = 'Games Like Animal Crossing';
   description: string = '';
 
-  lists: any[]= [
+  l: any[] = [
     { user: 'amkasumi', title: 'Games Like Animal Crossing', description: 'Chill games that involve mundane tasks. Can build things, dress up, raise pets, etc. Playtime = infinate.'},
     { user: 'yogataichi34', title: 'Best Games For Switch Lite', description: 'Some games are just waaay better on the regular switch console but these are games where the experience on the Lite is still very comparable.'},
     { user: 'rageofbahamut404', title: 'Fav Gacha Games', description: 'Mainly card-based'},
     { user: 'iloveanimalsss01', title: 'Worst Indie Games of 2020', description: 'All genres'},
 ];
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
