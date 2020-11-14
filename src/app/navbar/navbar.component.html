@@ -1,0 +1,72 @@
+<head>
+  <meta charset = "UTF-8">
+  <title>My Game List</title>
+
+</head>
+
+<body>
+    <header class="container">
+      <div class="header">
+        <h1>My Game List
+          <ng-template [ngIf]="isLogin()">
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Profile</button>
+            <button type="button" class="btn btn-secondary btn-sm" (click)="logoff()"style="margin:5px;">Log Off</button>
+          </ng-template>
+          <ng-template [ngIf]="!isLogin()">
+            <button type="button" class="btn btn-secondary btn-sm" (click)="login()">Login</button>
+          </ng-template>
+        </h1>
+      </div>
+    </header>
+
+    <div class="navigation">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <ul class= "navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" [routerLink]="['/home']">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/games']">Games</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/userListing']">User Listing</a>
+          </li>
+          <!--
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/myGames']">My Games</a>
+          </li>
+          -->
+        <ng-template [ngIf]="isLogin()">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="javascript: void(0);" id="routerLinkDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="routerLinkDropdown">
+              <a class="dropdown-item" [routerLink]="['/myGames']">My List</a>
+              <a class="dropdown-item" [routerLink]="['/mylist']">My Followed Lists</a>
+            </div>
+          </li>
+        </ng-template>
+          <li class="nav-item">
+            <a class="nav-link" [routerLink]="['/aboutus']">About Us</a>
+          </li>
+
+          <li style="float:right">
+            <form class ="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type = "Search" placeholder ="Search" aria-label="Search">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit ">Search</button>
+            </form>
+          </li>
+        </ul>
+        <ng-template [ngIf]="isLogin()">
+          <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+            <span class="navbar-text">
+              <b>Welcome, {{userInfo['username']}}!</b>
+            </span>
+          </li>
+        </ul>
+        </ng-template>
+      </nav>
+    </div>
+</body>

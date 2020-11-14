@@ -1,11 +1,15 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { DebugComponent } from './debug/debug.component';
+import { OauthLoginComponent } from './oauth-login/oauth-login.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ListsComponent } from './lists/lists.component';
 import { HomeComponent } from './home/home.component';
+import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
+import { NgModule, Component } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GamesComponent } from './games/games.component';
-import { ListsComponent } from './lists/lists.component';
 import { MygamesComponent } from './mygames/mygames.component';
-import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -22,3 +26,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
+export const routingArray = [GamesComponent];

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../User';
 
 export class GameInfo {
   public cover: string;
@@ -16,8 +17,12 @@ export class GameInfo {
   styleUrls: ['./gamedisplay.component.css']
 })
 export class GamedisplayComponent implements OnInit {
+  public userInfo;
+  constructor(u: User) {
+    this.userInfo = JSON.stringify(u.get());
+    console.log(this.userInfo);
+  }
 
-  constructor() {}
 
   ngOnInit(): void {
     this.game.bio = "Join your crewmates in a multiplayer game of teamwork and betrayal! Play online or over local wifi with 4-10 players as you attempt to hold your spaceship together and return back to civilization. But beware...as there may be an alien impostor aboard!";
