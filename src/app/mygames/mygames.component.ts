@@ -8,16 +8,16 @@ import {CustomLists} from './customizeList';
   styleUrls: ['./mygames.component.css']
 })
 export class MygamesComponent implements OnInit {
-  customerLists: CustomList[] = CustomLists;
+  // customerLists: CustomList[] = CustomLists;
 
   constructor() { }
 
   ngOnInit(): void {
   }
   // get image Urls
-  getImgUrl(i:number): string{
-    let idx = '';
-    idx = i+'';
-    return 'assets/images/'+ idx +'.png';
-  }
+  // getImgUrl(i:number): string{
+ //   let idx = '';
+  //  idx = i+'';
+  //  return 'assets/images/'+ idx +'.png';
+ // }
 }

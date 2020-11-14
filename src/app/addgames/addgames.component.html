@@ -1,0 +1,70 @@
+<!-- Compiled and minified Materialize CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified Materialize JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet" />
+
+<h5>Create New List:</h5>
+<form [formGroup]="this.ordersService.form">
+  <input
+    placeholder="Title"
+    formControlName="listTitle"
+    type="text"
+    class="input-field col s12"
+  />
+
+  <input
+    class="input-field col s12"
+    placeholder="Comments"
+    formControlName="listNumber"
+    type="text"
+  />
+
+ <!-- <button
+    class="waves-effect waves-light btn col s4"
+    *ngFor="let game of games"
+    (click)="addGame(game)"
+  >
+    {{ game }}
+  </button> -->
+
+  <ul class="collection">
+    <li *ngFor="let game of gameList">
+      <span class="col s11"> {{ game }} </span
+      ><a class="col s1" (click)="removeGame(game)">x</a>
+    </li>
+  </ul>
+
+        <form [formGroup]='stateForm' autocomplete="new-password" novalidate>
+            <input id='search' placeholder="Search for a video game title" formControlName='search' (click)=' openDropDown() ' class=' input-underline search-bar ' type='text'>
+        </form>
+        <div clickOutside (clickOutside)="closeDropDown()">
+            <div *ngIf='showDropDown' class='search-drop-down '>
+                <div (click)='selectValue(s)' class='search-results ' *ngFor="let s of states | searchFilter: getSearchValue()">
+                    <a [innerHTML]="s | letterBold: getSearchValue()">
+                           {{s}}
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    <div class='width-25 '></div>
+
+<main>
+    <div class='flex-container card-container flex-wrap flex-center '>
+        <div class='flex-container card-dimensions card flex-center width-100 ' *ngFor='let s of states | searchFilter: getSearchValue()'>
+            <div class='width-5 '></div>
+            {{s}}
+            <div class='width-5 '></div>
+        </div>
+    </div>
+</main>
+<footer>
+</footer>
+
+
+  <button class="waves-effect waves-light btn col s12" (click)="onSubmit()">
+    Submit
+  </button>
+</form>

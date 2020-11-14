@@ -1,4 +1,6 @@
 import { ListService } from './services/list.service';
+import { ListsService } from './shared/lists.service';
+
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
@@ -18,11 +20,16 @@ import { MygamesComponent } from './mygames/mygames.component';
 import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { AddlistComponent } from './addlist/addlist.component';
-import { OrdersComponent } from './orders/orders.component';
-import { OrderListComponent } from './order-list/order-list.component';
 
-import { OrdersService } from './shared/orders.service';
+import { AddedlistsComponent } from './addedlists-list/addedlists-list.component';
+import { AddgamesComponent } from './addgames/addgames.component';
+
+
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import { LetterBoldPipe } from './shared/letter-bold.pipe';
+import { SearchFilterPipe } from './shared/filter.pipe';
+import { ClickOutsideDirective } from './shared/dropdown.directive';
 
 
 @NgModule({
@@ -36,8 +43,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     GamedisplayComponent,
     AboutusComponent,
     AddlistComponent,
-    OrdersComponent,
-    OrderListComponent
+    AddedlistsComponent,
+    AddgamesComponent,
+    SearchComponent,
+    LetterBoldPipe,
+    SearchFilterPipe,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
@@ -46,7 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     AngularFirestoreModule,
     ReactiveFormsModule
   ],
-  providers: [ListService, OrdersService],
+  providers: [ListService, ListsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

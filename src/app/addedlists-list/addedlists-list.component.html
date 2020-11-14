@@ -1,0 +1,39 @@
+<table>
+  <thead>
+    <tr>
+      <th>List No.</th>
+      <th>Title</th>
+      <th>Games</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let list of gameLists">
+      <td>
+        {{ list.payload.doc.data().listNumber }}
+      </td>
+      <td>{{ list.payload.doc.data().listTitle }}</td>
+      <td>
+        <span *ngFor="let game of list.payload.doc.data().gameList">
+          {{ game }}
+        </span>
+      </td>
+      <td
+        [hidden]="list.payload.doc.data().completed"
+        (click)="markCompleted(list)"
+      >
+        <i class="material-icons">check</i>
+      </td>
+      <td
+        [hidden]="list.payload.doc.data().completed"
+        (click)="deleteList(list)"
+      >
+        <i class="material-icons">delete_forever</i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li></li>
+</ul>

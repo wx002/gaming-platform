@@ -6,40 +6,40 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class OrdersService {
-  constructor(private firestore: AngularFirestore) {}
+export class ListsService {
+  constructor(public firestore: AngularFirestore) {}
 
   form = new FormGroup({
-    customerName: new FormControl(""),
-    orderNumber: new FormControl(""),
-    coffeeOrder: new FormControl(""),
+    listTitle: new FormControl(""),
+    listNumber: new FormControl(""),
+    listGames: new FormControl(""),
     completed: new FormControl(false)
   });
 
   //Firestore CRUD actions example
-  createCoffeeOrder(data) {
+  createList(data) {
     return new Promise<any>((resolve, reject) => {
       this.firestore
-        .collection("coffeeOrders")
+        .collection("myLists")
         .add(data)
         .then(res => {}, err => reject(err));
     });
   }
 
-  updateCoffeeOrder(data) {
+  updateList(data) {
     return this.firestore
-      .collection("coffeeOrders")
+      .collection("myLists")
       .doc(data.payload.doc.id)
       .set({ completed: true }, { merge: true });
   }
 
-  getCoffeeOrders() {
-    return this.firestore.collection("coffeeOrders").snapshotChanges();
+  getAllLists() {
+    return this.firestore.collection("myLists").snapshotChanges();
   }
 
-  deleteCoffeeOrder(data) {
+  deleteList(data) {
     return this.firestore
-      .collection("coffeeOrders")
+      .collection("myLists")
       .doc(data.payload.doc.id)
       .delete();
   }
