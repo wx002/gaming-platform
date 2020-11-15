@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ListsService } from "../shared/lists.service";
-
-
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 
@@ -81,5 +79,6 @@ export class AddgamesComponent implements OnInit {
       /*do something here....maybe clear the form or give a success message*/
     });
   }
+
 }
 

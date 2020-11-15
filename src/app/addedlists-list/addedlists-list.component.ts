@@ -9,7 +9,7 @@ import { ListsService } from "../shared/lists.service";
 export class AddedlistsComponent implements OnInit {
   gameLists: any;
 
-  constructor(public listsService:ListsService) { }
+  constructor(public listsService: ListsService) { }
 
   ngOnInit() {
     this.getAllLists();
@@ -22,6 +22,6 @@ export class AddedlistsComponent implements OnInit {
 
   deleteList = data => this.listsService.deleteList(data);
 
-  markCompleted = data => this.listsService.updateList(data);
+  markPrivate = data => this.listsService.updateList(data);
 
 }

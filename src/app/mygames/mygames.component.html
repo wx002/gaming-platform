@@ -1,7 +1,14 @@
+<!-- Compiled and minified Materialize CSS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<!-- Compiled and minified Materialize JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script><!-- Google Material Icons -->
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet" />
+
 <br>
 <h2>Currently Playing</h2>
 <br>
-<!--
+
 <div class="row">
   <div class="col-md-8 col-sm-9 border-right">
     <table class="table table-hover">
@@ -18,8 +25,8 @@
       </thead>
 
       <tbody>
-      <!--Table Content-->  <!--
-      <tr *ngFor="let clist of customerLists; index as i">
+      <!--Table Content-->
+   <!--   <tr *ngFor="let clist of customerLists; index as i">
         <td scope="row">{{i+1}}</td>
         <td scope="row"><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
         <td><a href="#">{{clist.Title}}</a></td>
@@ -27,8 +34,18 @@
         <td>{{clist.Score}}</td>
         <td>{{clist.Type}}</td>
         <td><a href="#">edit</a></td>
-      </tr>
-      </tbody>
+      </tr> -->
+
+ <!--     <tr *ngFor="let game of gameLists; index as i">
+        <td scope="row">{{i+1}}</td>
+        <td scope="row"><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
+        <td><a href="#">{{clist.Title}}</a></td>
+        <td>{{clist.Description}}</td>
+        <td>{{clist.Score}}</td>
+        <td>{{clist.Type}}</td>
+        <td><a href="#">edit</a></td>
+      </tr> -->
+    </tbody>
     </table>
   </div>
 
@@ -36,12 +53,34 @@
     <ul class="list-group list-group-flush">
       <h2>My Game List</h2>
 
-      <li class="list-group-item list-group-item-action list-group-item-secondary"><a href="#" title="View all games under Currently Playing">Currently Playing</a> (5) </li>
+      <tr *ngFor="let list of gameLists">
+        <td>
+          <a [routerLink]="['/mygames', list.listTitle]">{{ list.payload.doc.data().listTitle }}</a>
+         <!--  {{ list.payload.doc.data().listTitle }} -->
+        </td>
+        <td
+        [hidden]="list.payload.doc.data().completed"
+        (click)="markPrivate(list)"
+      >
+        <i class="material-icons">visibility</i>
+       <!-- <i class="material-icons">check</i> -->
+      </td>
+
+      <td
+        [hidden]="list.payload.doc.data().completed"
+        (click)="deleteList(list)"
+      >
+        <i class="material-icons">delete_forever</i>
+      </td>
+      </tr>
+
+    <!--  <li class="list-group-item list-group-item-action list-group-item-secondary"><a href="#" title="View all games under Currently Playing">Currently Playing</a> (5) </li>
       <li class="list-group-item"><a href="#" title="View completed games">Completed</a> (1) </li>
       <li class="list-group-item"><a href="#" title="View on Hold games">On Hold</a> (0) </li>
       <li class="list-group-item"><a href="#" title="View dropped games">Dropped</a> (0) </li>
-      <li class="list-group-item"><a href="#" title="View all games plan to play">Plan to Play</a> (0) </li>
-      <button type="button" class="btn btn-outline-primary">New List
+      <li class="list-group-item"><a href="#" title="View all games plan to play">Plan to Play</a> (0) </li> -->
+
+      <button (click)="action()" class="btn btn-outline-primary">New List
         <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-plus-circle" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
           <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -50,5 +89,6 @@
     </ul>
   </div>
 
-</div> -->
+</div>
 
+<app-addedlists-list></app-addedlists-list>

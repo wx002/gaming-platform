@@ -18,12 +18,15 @@
           {{ game }}
         </span>
       </td>
+
       <td
         [hidden]="list.payload.doc.data().completed"
-        (click)="markCompleted(list)"
+        (click)="markPrivate(list)"
       >
-        <i class="material-icons">check</i>
+        <i class="material-icons">visibility</i>
+       <!-- <i class="material-icons">check</i> -->
       </td>
+
       <td
         [hidden]="list.payload.doc.data().completed"
         (click)="deleteList(list)"
