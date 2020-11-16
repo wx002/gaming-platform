@@ -25,23 +25,17 @@ export class MygamesComponent implements OnInit {
    //customerLists: CustomList[] = CustomLists;
     gameLists: any;
    myLists$;
-  // lists$: Observable<List[]>;
-  constructor(private router: Router, public listsService:ListsService, public firestore: AngularFirestore) {
-   /* this.lists$ = this.firestore.collection<List>('lists')
-         .snapshotChanges().pipe(
-           map(actions => actions.map(a => {
-             const data = a.payload.doc.data() as List;
-             const id = a.payload.doc.id;
-             return { id, ...data };
-           }))
-         );  */
+
+  constructor(private router: Router, public listsService:ListsService) {
 
      }
 
   ngOnInit() {
     this.getAllLists();
    // this.lists$.subscribe(data => console.log(data));
-   this.myLists$ = this.firestore.collection('myLists').valueChanges;
+
+   // reference myList documents as myLists$ property and call caluechanges() to listen to them as real-time obsevable
+   this.myLists$ = this.listsService.firestore.collection('myLists').valueChanges();
   }
 
   getAllLists = () =>

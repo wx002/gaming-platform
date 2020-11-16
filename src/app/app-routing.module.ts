@@ -24,9 +24,10 @@ const routes: Routes = [
   //{path: 'myGames', component: MygamesComponent},
   //{path: 'myGames/:id', component: ListDetailComponent },
 
+  // details of clicked list will be rendered as child routes inside myGames parent
   {path: 'myGames', component: MygamesComponent,
   children: [
-    { path: ':id', component: ListDetailComponent }
+    { path: ':listTitle', component: ListDetailComponent }
   ]}
 ];
 

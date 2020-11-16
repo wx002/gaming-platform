@@ -61,7 +61,7 @@
 
       <tr *ngFor="let list of gameLists">
         <td>
-          <a [routerLink]="['/mygames', list.payload.doc.id]">{{ list.payload.doc.data().listTitle }}</a>
+          <a [routerLink]="['/mygames', list.payload.doc.data().listTitle]">{{ list.payload.doc.data().listTitle }}</a>
         </td>
         <td
         [hidden]="list.payload.doc.data().completed"
