@@ -1,3 +1,4 @@
+import { ListDetailComponent } from './list-detail/list-detail.component';
 import { AddgamesComponent } from './addgames/addgames.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ListsComponent } from './lists/lists.component';
@@ -20,8 +21,11 @@ const routes: Routes = [
   }]},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'addgames', component: AddgamesComponent},
-  {path: 'myGames', component: MygamesComponent}
-
+ // {path: 'myGames', component: MygamesComponent},
+  {path: 'myGames', component: MygamesComponent,
+  children: [
+    { path: ':id', component: ListDetailComponent }
+  ]}
 ];
 
 @NgModule({
@@ -31,7 +35,4 @@ const routes: Routes = [
 export class AppRoutingModule { }
 export const routingArray = [GamesComponent];
 
- /* {path: 'myGames', component: MygamesComponent,
-  children: [
-    { path: 'addgames?=type', component: AddgamesComponent }
-  ]} */
+

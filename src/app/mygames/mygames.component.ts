@@ -39,4 +39,9 @@ export class MygamesComponent implements OnInit {
     this.router.navigate([ '/addgames' ])
  }
 
+
+
+
+
+
 }

@@ -13,7 +13,7 @@ export class ListsService {
     listTitle: new FormControl(""),
     listNumber: new FormControl(""),
     listGames: new FormControl(""),
-    completed: new FormControl(false)
+    private: new FormControl(false)
   });
 
   //Firestore CRUD actions example
@@ -30,7 +30,7 @@ export class ListsService {
     return this.firestore
       .collection("myLists")
       .doc(data.payload.doc.id)
-      .set({ completed: true }, { merge: true });
+      .set({ private: true }, { merge: true });
   }
 
   getAllLists() {
@@ -43,7 +43,16 @@ export class ListsService {
       .doc(data.payload.doc.id)
       .delete();
   }
+
+  getListID(data){
+    this.firestore
+      .collection("myLists")
+      .doc(data.payload.doc.id).get();
+  }
+
 }
+
+
 
 
 // getCoffeeOrders(): Observable<any> {

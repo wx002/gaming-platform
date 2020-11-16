@@ -55,7 +55,7 @@
 
       <tr *ngFor="let list of gameLists">
         <td>
-          <a [routerLink]="['/mygames', list.listTitle]">{{ list.payload.doc.data().listTitle }}</a>
+          <a [routerLink]="['/mygames', list.payload.doc.id]">{{ list.payload.doc.data().listTitle }}</a>
          <!--  {{ list.payload.doc.data().listTitle }} -->
         </td>
         <td
@@ -72,6 +72,8 @@
       >
         <i class="material-icons">delete_forever</i>
       </td>
+
+
       </tr>
 
     <!--  <li class="list-group-item list-group-item-action list-group-item-secondary"><a href="#" title="View all games under Currently Playing">Currently Playing</a> (5) </li>
@@ -92,3 +94,6 @@
 </div>
 
 <app-addedlists-list></app-addedlists-list>
+
+<router-outlet></router-outlet>
+

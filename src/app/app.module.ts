@@ -30,6 +30,7 @@ import { SearchComponent } from './search/search.component';
 import { LetterBoldPipe } from './shared/letter-bold.pipe';
 import { SearchFilterPipe } from './shared/filter.pipe';
 import { ClickOutsideDirective } from './shared/dropdown.directive';
+import { ListDetailComponent } from './list-detail/list-detail.component';
 
 
 @NgModule({
@@ -48,7 +49,8 @@ import { ClickOutsideDirective } from './shared/dropdown.directive';
     SearchComponent,
     LetterBoldPipe,
     SearchFilterPipe,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    ListDetailComponent
   ],
   imports: [
     BrowserModule,
