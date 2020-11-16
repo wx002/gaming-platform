@@ -21,7 +21,9 @@ const routes: Routes = [
   }]},
   {path: 'aboutus', component: AboutusComponent},
   {path: 'addgames', component: AddgamesComponent},
- // {path: 'myGames', component: MygamesComponent},
+  //{path: 'myGames', component: MygamesComponent},
+  //{path: 'myGames/:id', component: ListDetailComponent },
+
   {path: 'myGames', component: MygamesComponent,
   children: [
     { path: ':id', component: ListDetailComponent }

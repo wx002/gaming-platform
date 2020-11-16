@@ -9,6 +9,12 @@
 <h2>Currently Playing</h2>
 <br>
 
+<!-- <ul>
+  <li *ngFor="let list of myLists$ | async">
+    <a [routerLink]="['mygames', list.listTitle]"></a>
+  </li>
+</ul> -->
+
 <div class="row">
   <div class="col-md-8 col-sm-9 border-right">
     <table class="table table-hover">
@@ -56,7 +62,6 @@
       <tr *ngFor="let list of gameLists">
         <td>
           <a [routerLink]="['/mygames', list.payload.doc.id]">{{ list.payload.doc.data().listTitle }}</a>
-         <!--  {{ list.payload.doc.data().listTitle }} -->
         </td>
         <td
         [hidden]="list.payload.doc.data().completed"
@@ -94,6 +99,7 @@
 </div>
 
 <app-addedlists-list></app-addedlists-list>
-
+<!--<app-list-detail></app-list-detail> -->
 <router-outlet></router-outlet>
+
 

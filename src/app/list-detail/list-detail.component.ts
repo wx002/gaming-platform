@@ -11,16 +11,21 @@ import { switchMap } from 'rxjs/operators';
   styleUrls: ['./list-detail.component.css']
 })
 export class ListDetailComponent implements OnInit {
-  list$;
-  constructor(public listsService:ListsService, public route: ActivatedRoute, public firestore: AngularFirestore) { }
+  //gameLists: any;
+  myLists$;
+  constructor(public listsService:ListsService, public route: ActivatedRoute, public firestore: AngularFirestore) {
+ //  const id: string = route.snapshot.paramMap.get('id');
+  // console.log('list ID form URL: ', id)
+   }
 
   ngOnInit() {
-    this.list$ = this.route.paramMap.pipe(
+    this.myLists$ = this.route.paramMap.pipe(
       switchMap(params => {
-        const id = params.get('id');
+        //const id = params.get('id');
+        const id: string = this.route.snapshot.paramMap.get('id');
         return this.firestore.doc('mygames/' + id).valueChanges;
       })
     );
-  }
+    }
 
 }

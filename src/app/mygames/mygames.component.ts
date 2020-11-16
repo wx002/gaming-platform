@@ -1,10 +1,19 @@
 import { ListsService } from "../shared/lists.service";
 
 import { Component, OnInit } from '@angular/core';
-import {CustomList, List} from './types';
 import {CustomLists} from './customizeList';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { FormControl, FormGroup } from "@angular/forms";
+import { AngularFirestore } from '@angular/fire/firestore';
 
+export interface List {
+  title: string;
+  comments: string;
+  games: string[];
+ }
 
 @Component({
   selector: 'app-mygames',
@@ -12,14 +21,29 @@ import { Router } from '@angular/router';
   styleUrls: ['./mygames.component.css']
 })
 export class MygamesComponent implements OnInit {
-   customerLists: CustomList[] = CustomLists;
-   gameLists: any;
 
-  constructor(private router: Router, public listsService:ListsService) { }
+   //customerLists: CustomList[] = CustomLists;
+    gameLists: any;
+   myLists$;
+  // lists$: Observable<List[]>;
+  constructor(private router: Router, public listsService:ListsService, public firestore: AngularFirestore) {
+   /* this.lists$ = this.firestore.collection<List>('lists')
+         .snapshotChanges().pipe(
+           map(actions => actions.map(a => {
+             const data = a.payload.doc.data() as List;
+             const id = a.payload.doc.id;
+             return { id, ...data };
+           }))
+         );  */
 
-  ngOnInit(): void {
+     }
+
+  ngOnInit() {
     this.getAllLists();
+   // this.lists$.subscribe(data => console.log(data));
+   this.myLists$ = this.firestore.collection('myLists').valueChanges;
   }
+
   getAllLists = () =>
     this.listsService
       .getAllLists()
@@ -39,9 +63,8 @@ export class MygamesComponent implements OnInit {
     this.router.navigate([ '/addgames' ])
  }
 
-
-
-
-
+ listClickaction(){
+  this.router.navigate([ '/:id' ])
+}
 
 }
