@@ -1,13 +1,13 @@
 import { ListsService } from "../shared/lists.service";
 
-import { Component, OnInit } from '@angular/core';
-import {CustomLists} from './customizeList';
+import {Component, OnInit} from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
+
 
 export interface List {
   title: string;
@@ -21,14 +21,19 @@ export interface List {
   styleUrls: ['./mygames.component.css']
 })
 export class MygamesComponent implements OnInit {
-
-   //customerLists: CustomList[] = CustomLists;
+    // lists
     gameLists: any;
-   myLists$;
+    myLists$;
 
-  constructor(private router: Router, public listsService:ListsService) {
+    // games
+    games$: any;
 
-     }
+    currentlist= false;
+    currentIndex;
+
+
+  constructor(private router: Router, public listsService:ListsService, private routerInfor: ActivatedRoute) {
+  }
 
   ngOnInit() {
     this.getAllLists();
@@ -36,7 +41,9 @@ export class MygamesComponent implements OnInit {
 
    // reference myList documents as myLists$ property and call caluechanges() to listen to them as real-time obsevable
    this.myLists$ = this.listsService.firestore.collection('myLists').valueChanges();
+   //console.log(this.routerInfor.snapshot.paramMap.get('id'));
   }
+
 
   getAllLists = () =>
     this.listsService
@@ -46,13 +53,14 @@ export class MygamesComponent implements OnInit {
   deleteList = data => this.listsService.deleteList(data);
 
   markPrivate = data => this.listsService.updateList(data);
+
   // get image Urls
   getImgUrl(i:number): string{
     let idx = '';
     idx = i+'';
     return 'assets/images/'+ idx +'.png';
   }
-
+  // create new list
   action(){
     this.router.navigate([ '/addgames' ])
  }
@@ -60,5 +68,19 @@ export class MygamesComponent implements OnInit {
  listClickaction(){
   this.router.navigate([ '/:id' ])
 }
+
+  checkData(){
+    console.log(this.currentIndex);
+  }
+
+  refresh(index){
+    //this.router.navigate(['myGames', index])
+    this.currentlist= true;
+    this.currentIndex = index;
+
+    //console.log(index);
+
+  }
+
 
 }
