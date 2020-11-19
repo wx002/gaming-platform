@@ -1,8 +1,102 @@
+<html>
+    <head>
+        <meta charset = "UTF-8">
+        <title>Lists</title>
+
+      </head>
+
+      <body ng-app="app">
+
+        <div class="head-tag">
+        <header>
+          All Lists
+        </header>
+        <h6>Explore other users' public lists</h6>
+      </div>
+
+
+<div class="alpha-container">
+        <div class="index-tag">
+          <p>
+            Alphabetical Index:
+          </p>
+        </div>
+
+  <div class="link-container">
+    <ul>
+    <!--  <td><a href="#">{{game}}</a></td> -->
+
+    <li><a role="button" (click)="getListsAlphabeticallyA()"> a </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyB()"> b </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyC()"> c </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyD()"> d </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyE()"> e </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyF()"> f </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyG()"> g </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyH()"> h </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyI()"> i </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyJ()"> j </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyK()"> k </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyL()"> l </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyM()"> m </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyN()"> n </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyO()"> o </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyP()"> p </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyQ()"> q </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyR()"> r </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyS()"> s </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyT()"> t </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyU()"> u </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyV()"> v </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyW()"> w </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyX()"> x </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyY()"> y </a></li>
+    <li><a role="button" (click)="getListsAlphabeticallyZ()"> z </a></li>
+    </ul>
+</div>
+</div>
 <table>
   <thead>
     <tr>
-      <th>List No.</th>
+      <th>User</th>
       <th>Title</th>
+      <th>Comments</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let list of gameLists">
+      <td>
+
+      </td>
+      <td>
+        {{ list.payload.doc.data().listTitle }}
+      </td>
+      <td>{{ list.payload.doc.data().listComments }}</td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
+  <li></li>
+</ul>
+
+<ul class="pagination">
+  <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+  <li class="active"><a href="#!">1</a></li>
+  <li class="waves-effect"><a href="#!">2</a></li>
+  <li class="waves-effect"><a href="#!">3</a></li>
+  <li class="waves-effect"><a href="#!">4</a></li>
+  <li class="waves-effect"><a href="#!">5</a></li>
+  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+</ul>
+
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Comments</th>
       <th>Games</th>
     </tr>
   </thead>
@@ -10,9 +104,9 @@
   <tbody>
     <tr *ngFor="let list of gameLists">
       <td>
-        {{ list.payload.doc.data().listNumber }}
+        {{ list.payload.doc.data().listTitle }}
       </td>
-      <td>{{ list.payload.doc.data().listTitle }}</td>
+      <td>{{ list.payload.doc.data().listComments }}</td>
       <td>
         <span *ngFor="let game of list.payload.doc.data().gameList">
           {{ game }}
@@ -25,7 +119,7 @@
       >
         <i class="material-icons">visibility</i>
        <!-- <i class="material-icons">check</i> -->
-      </td>
+ <!--   </td>
 
       <td
         [hidden]="list.payload.doc.data().completed"
@@ -39,4 +133,4 @@
 
 <ul>
   <li></li>
-</ul>
+</ul> -->

@@ -55,6 +55,8 @@ export class MygamesComponent implements OnInit {
 
   deleteList = data => this.listsService.deleteList(data);
 
+
+
  /* removeGame = game => {
     let index = this.gameList.indexOf(game);
     if (index > -1) this.gameList.splice(index, 1);
