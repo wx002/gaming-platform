@@ -9,6 +9,7 @@ import { GamesComponent } from './games/games.component';
 import { ListsComponent } from './lists/lists.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
+import { PopularComponent } from './popular/popular.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
     GamesComponent,
     ListsComponent,
     MygamesComponent,
-    GamedisplayComponent
+    GamedisplayComponent,
+    PopularComponent
   ],
   imports: [
     BrowserModule,
