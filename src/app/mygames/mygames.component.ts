@@ -1,3 +1,4 @@
+import { element } from 'protractor';
 import { ListsService } from "../shared/lists.service";
 
 import {Component, OnInit} from '@angular/core';
@@ -7,6 +8,8 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { FormControl, FormGroup } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase/app';
+import { CollectionReference, Query } from '@firebase/firestore-types';
 
 
 export interface List {
@@ -52,7 +55,40 @@ export class MygamesComponent implements OnInit {
 
   deleteList = data => this.listsService.deleteList(data);
 
+ /* removeGame = game => {
+    let index = this.gameList.indexOf(game);
+    if (index > -1) this.gameList.splice(index, 1);
+  }; */
+
+  // deleteGameInList = gameName => {
+  //  const listGames = this.myLists$.listGames;
+ // }
+ // newGames = listGames.filter(
+ //   palette => palette.name !== paletteName
+//)
+
+  //deleteGame(data, game){
+
+
+   // this.listsService.firestore.collection('myLists').doc(data.payload.doc.id).update({
+     // gameList: firebase.default.firestore.FieldValue.arrayRemove("Final Fantasy XII")
+  //  })
+  //}
+
+    // gameLists[currentIndex].payload.doc.data().gameList
+    //this.listsService.firestore.collection('myLists').doc(data.payload.doc.id).update({
+      // gameList: this.listsService.firestore.FieldValue.arrayRemove();
+     // this.listsService.firestore.collection('myLists').doc(data.payload.doc.id) .ref.update({ gameList: firebase.firestore.FieldValue.arrayUnion(new_Item)})
+
+     /* this.listsService.firestore.collection('myLists').add({
+      gameList: firebase.default.firestore.FieldValue.increment(1),
+    }) */
+
+   // FieldValue.arrayRemove()
+
+
   markPrivate = data => this.listsService.updateList(data);
+
 
   // get image Urls
   getImgUrl(i:number): string{

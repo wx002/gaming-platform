@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListsService } from "../shared/lists.service";
 import { FormBuilder, FormGroup } from '@angular/forms';
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-addgames',
@@ -22,7 +22,7 @@ export class AddgamesComponent implements OnInit {
   'Chaos;Head', 'Shining Resonance Refrain', 'Kanon', 'Dies irae', 'Persona', 'Persona 2', 'Jump Force', 'Unravel 2', 'Ark Survival Evolved', 'Odin Sphere',
    'J Stars Victory VS+', 'Fairy Tail', 'One Punch Ma A Hero Nobody Knows', 'Tokyo Ghoul Jail'];
 
-  constructor(public ordersService: ListsService, private fb: FormBuilder) {
+  constructor(public listsService: ListsService, private fb: FormBuilder, private router: Router ) {
     this.initForm()
   }
 
@@ -35,9 +35,10 @@ export class AddgamesComponent implements OnInit {
   ngOnInit() {}
 
   selectValue(value) {
-    this.stateForm.patchValue({"search": value});
+    // this.stateForm.patchValue({"search": value});
     this.gameList.push(value);
     this.showDropDown = false;
+
   }
    closeDropDown() {
      this.showDropDown = !this.showDropDown;
@@ -51,16 +52,6 @@ export class AddgamesComponent implements OnInit {
      return this.stateForm.value.search;
    }
 
-  /* games = [
-    "A game",
-    "B game",
-    "C game",
-    "D Game",
-    "E Game",
-    "F Game",
-    "G game"
-  ]; */
-
   gameList = [];
 
   //addGame = game => this.gameList.push(game);
@@ -72,12 +63,15 @@ export class AddgamesComponent implements OnInit {
   };
 
   onSubmit() {
-    this.ordersService.form.value.gameList = this.gameList;
-    let data = this.ordersService.form.value;
+    this.listsService.form.value.gameList = this.gameList;
+    let data = this.listsService.form.value;
 
-    this.ordersService.createList(data).then(res => {
+    this.listsService.createList(data).then(res => {
       /*do something here....maybe clear the form or give a success message*/
+
     });
+
+    this.router.navigate([ '/myGames' ]);
   }
 
 }

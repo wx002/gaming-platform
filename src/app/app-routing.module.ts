@@ -1,4 +1,4 @@
-import { ListDetailComponent } from './list-detail/list-detail.component';
+//import { ListDetailComponent } from './list-detail/list-detail.component';
 import { AddgamesComponent } from './addgames/addgames.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
 import { ListsComponent } from './lists/lists.component';

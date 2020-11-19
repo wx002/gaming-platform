@@ -49,7 +49,6 @@ export class ListsService {
       .collection("myLists")
       .doc(data.payload.doc.id).get();
   }
-
 }
 
 

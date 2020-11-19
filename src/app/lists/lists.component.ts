@@ -23,5 +23,4 @@ export class ListsComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
