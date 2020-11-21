@@ -1,14 +1,18 @@
+import { AddedlistsComponent } from './addedlists-list/addedlists-list.component';
 import { LoginComponent } from './login/login.component';
 import { DebugComponent } from './debug/debug.component';
 import { OauthLoginComponent } from './oauth-login/oauth-login.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
-import { ListsComponent } from './lists/lists.component';
+// import { ListsComponent } from './lists/lists.component';
 import { HomeComponent } from './home/home.component';
 import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
 import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {GamesComponent} from './games/games.component';
 import {MygamesComponent} from './mygames/mygames.component';
+import { AddgamesComponent } from './addgames/addgames.component';
+
+
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -16,8 +20,7 @@ const routes: Routes = [
     path: 'games?index=type', component: GamesComponent
   }]},
   {path: 'home', component: HomeComponent},
-  {path: 'userListing', component: ListsComponent},
-  {path: 'myGames', component: MygamesComponent},
+  {path: 'lists', component: AddedlistsComponent},
   {path: 'gameDisplay', component: GamedisplayComponent, children: [{
     path: 'gameDisplay?game=type', component: GamedisplayComponent
   }]},
@@ -26,7 +29,12 @@ const routes: Routes = [
     path: 'login/callback?code=type', component: OauthLoginComponent
   }]},
   {path: 'debug', component: DebugComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'login', component: LoginComponent},
+  {path: 'myGames', component: MygamesComponent,
+  children: [
+    { path: 'myGames/:id', component: MygamesComponent }
+  ]},
+  {path: 'addgames', component: AddgamesComponent},
 ];
 
 

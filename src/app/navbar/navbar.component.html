@@ -29,7 +29,16 @@
             <a class="nav-link" [routerLink]="['/games']">Games</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" [routerLink]="['/userListing']">User Listing</a>
+            <a class="nav-link" [routerLink]="['/lists']">Lists</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="hrefDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              My Games
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" [routerLink]="['/myGames']">My Lists</a>
+           <!--   <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a> -->
+            </div>
           </li>
           <!--
           <li class="nav-item">
@@ -42,7 +51,7 @@
               My Games
             </a>
             <div class="dropdown-menu" aria-labelledby="routerLinkDropdown">
-              <a class="dropdown-item" [routerLink]="['/myGames']">My List</a>
+              <a class="dropdown-item" [routerLink]="['/myGames']">My Lists</a>
               <a class="dropdown-item" [routerLink]="['/mylist']">My Followed Lists</a>
             </div>
           </li>

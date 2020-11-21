@@ -4,6 +4,21 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
+import { ListService } from './services/list.service';
+import { ListsService } from './shared/lists.service';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import { environment } from '../environments/environment';
+import { AddlistComponent } from './addlist/addlist.component';
+import { AddedlistsComponent } from './addedlists-list/addedlists-list.component';
+import { AddgamesComponent } from './addgames/addgames.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SearchComponent } from './search/search.component';
+import { LetterBoldPipe } from './shared/letter-bold.pipe';
+import { SearchFilterPipe } from './shared/filter.pipe';
+import { ClickOutsideDirective } from './shared/dropdown.directive';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -34,11 +49,20 @@ import { LoginComponent } from './login/login.component';
     DebugComponent,
     LoginComponent,
     PopularComponent,
+    AddlistComponent,
+    AddedlistsComponent,
+    AddgamesComponent,
+    SearchComponent,
+    LetterBoldPipe,
+    SearchFilterPipe,
+    ClickOutsideDirective
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule,
   ],
   providers: [User],
   bootstrap: [AppComponent]

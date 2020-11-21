@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons"  rel="stylesheet" />
 
 <h5>Create New List:</h5>
-<form [formGroup]="this.listsService.form">
+<!--<form [formGroup]="this.listsService.form"> -->
   <input
     placeholder="Title"
     formControlName="listTitle"
@@ -36,9 +36,10 @@
     </li>
   </ul>
 
-        <form [formGroup]='stateForm' autocomplete="new-password" novalidate>
+   <!--     <form [formGroup]='stateForm' autocomplete="new-password" novalidate> -->
+
             <input id='search' placeholder="Search for a video game title" formControlName='search' (click)=' openDropDown() ' class=' input-underline search-bar ' type='text'>
-        </form>
+        <!--  </form>-->
         <div clickOutside (clickOutside)="closeDropDown()">
             <div *ngIf='showDropDown' class='search-drop-down '>
                 <div (click)='selectValue(s)' class='search-results ' *ngFor="let s of states | searchFilter: getSearchValue()">
@@ -67,4 +68,4 @@
   <button class="waves-effect waves-light btn col s12" (click)="onSubmit()">
     Submit
   </button>
-</form>
+<!--</form> -->

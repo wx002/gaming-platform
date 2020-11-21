@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListsService } from "../shared/lists.service";
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-addgames',
