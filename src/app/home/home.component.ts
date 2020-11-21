@@ -12,6 +12,10 @@ export class HomeComponent implements OnInit {
     this.userInfo = JSON.stringify(u.get());
   }
 
+  ngAfterViewInit(): void {
+    (window as any).twttr.widgets.load();
+  }
+
   ngOnInit(): void {
   }
 

@@ -1,6 +1,58 @@
-<app-navbar></app-navbar>
-<div class="jumbotron">
-  <div id="carousel" class="carousel slide" data-ride="carousel">
+<head>
+  <meta charset = "UTF-8">
+  <title>My Game List</title>
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</head>
+
+<body>
+<header class="container">
+  <div class="header">
+    <h1>My Game List
+      <button type="button" class="btn btn-secondary btn-sm">Profile</button>
+      <button type="button" class="btn btn-secondary btn-sm">Join now</button>
+      <button type="button" class="btn btn-secondary btn-sm">Login</button>
+    </h1>
+  </div>
+</header>
+
+<div class="navigation">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <ul class= "navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" [routerLink]="['/home']">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/games']">Games</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink]="['/userListing']">User Listing</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="hrefDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          My Games
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" [routerLink]="['/myGames']">My List</a>
+          <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href= "About.html">About Us</a>
+      </li>
+      <li style="float:right">
+        <form class ="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type = "Search" placeholder ="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit ">Search</button>
+        </form>
+      </li>
+    </ul>
+  </nav>
+</div>
+
+
+
+<div class = "container">
+<div id="carousel" class="carousel slide" data-ride="carousel">
     <div class="carousel-inner">
       <div class="carousel-item active" data-interval="5000">
         <img src="https://steamcdn-a.akamaihd.net/steam/apps/945360/header.jpg?t=1592601560" class="d-block w-100" alt="Among Us">
@@ -23,56 +75,24 @@
   </div>
 </div>
 
-<div class="recommendations">
 
-  <div class="row">
-    <div class="col">
-      <h3>Popular games</h3>
-    </div>
-    <div class="col">
-      <h3>public game lists</h3>
-    </div>
-  </div>
-
-  <div class="game_container">
-    <div class="row">
-      <div class="col">
-        <a [routerLink]="['/myGames']"><img src= "https://cdn-products.eneba.com/resized-products/InlPQPt7WRDHBRnySANJHVQrS2whLdUdTX9JB7djmGw_350x200_3x-0.jpeg"
-        width="120" height="120" alt= "Among Us"></a>
-        <a [routerLink]="['/myGames']"><img src= "https://store.playstation.com/store/api/chihiro/00_09_000/container/US/en/999/UP2293-CUSA11587_00-SRBUNDLE00000004/1590593358000/image?w=240&h=240&bg_color=000000&opacity=100&_version=00_09_000"
-        width="120" height="120" alt= "Slime Rancher"></a>
-      </div>
-      <div class="col">
-        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
-          width="120" height="120" alt= "UserProfile"></a>
-        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
-          width="120" height="120" alt= "UserProfile"></a>
-      </div>
-    </div>
-
-    <br>
-    <div class="row">
-      <div class="col">
-      <a [routerLink]="['/myGames']"><img src= "https://www.dailyesports.gg/wp-content/uploads/2019/10/League-of-Legends-Senna-Feature.png"
-        width="120" height="120" alt= "League of Legends"></a>
-      <a [routerLink]="['/myGames']"><img src= "https://steamcdn-a.akamaihd.net/steam/apps/739630/header.jpg?t=1600451822"
-        width="120" height="120" alt= "Phasmophobia"></a>
-      </div>
-      <div class="col">
-        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
-          width="120" height="120" alt= "UserProfile"></a>
-        <a href = "#"><img src= "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png"
-          width="120" height="120" alt= "UserProfile"></a>
-      </div>
-    </div>
-  </div>
-</div>
+<app-popular></app-popular>
 
 <br>
-<div class="twitter">
-  <p>twitter external source for news</p>
+<br>
+<div class="container">
+  <h1>Gaming News</h1>
 </div>
-<div>
-  <b>Note: This is only meant for debugging purpose </b> <br>
-  User Info: {{userInfo}}
+<br>
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      <a class="twitter-timeline" data-width="600" data-height="500" href="https://twitter.com/GameSpot?ref_src=twsrc%5Etfw">Tweets by GameSpot</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>      </div>
+    <div class="col-4">
+      <a class="twitter-timeline" data-width="600" data-height="500" href="https://twitter.com/CurseGamepedia?ref_src=twsrc%5Etfw">Tweets by CurseGamepedia</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    </div>
+    <div class="col-4">
+      <a class="twitter-timeline" data-width="600" data-height="500" href="https://twitter.com/pcgamer?ref_src=twsrc%5Etfw">Tweets by pcgamer</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>      </div>
+  </div>
 </div>
+</body>

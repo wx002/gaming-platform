@@ -1,0 +1,36 @@
+
+
+    <!-- <div *ngIf="lists?.length > 0;else noItems">
+  <ul *ngFor="let list of lists" class="collection">
+    <li class="collection-item"><strong>{{list.title}}: </strong> {{list.description}} <a href="#" class="secondary-content">
+      <i (click)="editList($event, list)" class="fa fa-pencil"></i>
+      <i *ngIf="editState && itemToList.id == list.id" (click)="clearState()" class="fa fa-compress"></i>
+    </a>
+
+    <div *ngIf="editState && listToEdit.id == list.id">
+      <form (ngSubmit)="updateList(list)">
+          <div class="row">
+              <div class="input-field col s6">
+                <input type="text" placeholder="Add Title" [(ngModel)]="list.title" name="title">
+              </div>
+              <div class="input-field col s6">
+                <input type="text" placeholder="Add Description" [(ngModel)]="item.description" name="description">
+              </div>
+              <input type="submit" value="Update List" class="btn orange">
+              <button (click)="deleteList($event, list)" class="btn red">Delete List</button>
+            </div>
+      </form>
+    </div>
+
+    </li>
+  </ul>
+</div>
+
+<ng-template #noLists>
+  <hr>
+  <h5>There are no list to list</h5>
+</ng-template> -->
+
+
+
+

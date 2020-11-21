@@ -1,3 +1,4 @@
+import { PopularComponent } from './popular/popular.component';
 import { User } from './User';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -32,6 +33,7 @@ import { LoginComponent } from './login/login.component';
     NavbarComponent,
     DebugComponent,
     LoginComponent,
+    PopularComponent,
   ],
   imports: [
     BrowserModule,
