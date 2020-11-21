@@ -63,6 +63,8 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [User],
   bootstrap: [AppComponent]

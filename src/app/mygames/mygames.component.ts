@@ -100,11 +100,11 @@ export class MygamesComponent implements OnInit {
   }
   // create new list
   action(){
-    this.router.navigate([ '/addgames' ])
+    this.router.navigate([ '/addgames' ]);
  }
 
  listClickaction(){
-  this.router.navigate([ '/:id' ])
+  this.router.navigate([ '/:id' ]);
 }
 
   checkData(){
