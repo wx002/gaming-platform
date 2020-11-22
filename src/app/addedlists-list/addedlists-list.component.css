@@ -1,49 +1,10 @@
-.container {
-  width: 90%;
-  margin: 0 auto;
-}
-
-.navigation {
-  width: 90%;
-  margin: 0 auto;
-  /* display: inline-block; */
-}
-
-
-button {
-  float: right;
-}
-
-nav ul {
-  margin: 0 auto;
-  padding: 0;
-  list-style: none;
-  border-style: solid;
-  border-width: .5px;
-}
-
-nav li {
-  padding: 7px;
-  display: inline-block;
-}
-
-nav a {
-  text-decoration: none;
-}
-
-h3 {
-  padding:5px;
-  width: 90%;
-  margin: 0 auto;
-}
-
 ul {
   margin: 0 auto;
   list-style: none;
 }
 
 table {
-  color: #369;
+  color: #495057;
   font-family: Arial, Helvetica, sans-serif;
   font-size: large;
   margin: 3rem;
@@ -52,70 +13,61 @@ table {
 }
 
 th, td {
-  border: 1px solid #369;
+  border: 1pX #009688;
   padding: 2px;
   text-align: left;
   padding-left: 5px;
   padding-right: 5px;
 }
 
-tr:nth-child(even) {background-color: #f2f2f2;}
+th.thead-dark {
+  color: #009688;
+}
+
+.table .thead-dark th {
+  color: #495057;
+  background-color: #26a69a;
+  border-color:#26a69a;
+}
+
+
+tr:nth-child(even) {background-color: #f5f5f5;}
 
 .link-container ul {
-  width: 100%;
-  margin: 0 auto;
-  text-decoration: underline;
+text-decoration: underline;
+margin-top: 0px;
 
 }
 
 .link-container ul li{
 
-  padding: 10px;
+  padding: 5px;
   display: inline;
+
+}
+
+.link-container{
+
 
 }
 
 .index-tag{
-  font-weight: bold;
 }
 
 .alpha-container{
-  display: inline-block;
-   margin-left: 10px;
-}
-
-.pages-container ul {
-  width: 95%;
-  margin: 0 auto;
-  text-decoration: underline;
-  text-align: center;
-
-
-
-}
-
-.pages-container ul li{
-
-  padding: 5px;
-  display: inline;
-
-
-}
-
-.pages-tag {
-
-text-align: center;
-font-size: 15px;
-display: inline;
-}
-
-.wrapper{
-  display: inline;
+ padding-top: 50px;
+  display: flex;
+  height: 0px;
+  justify-content: center;
 }
 
 .head-tag{
-
   text-align: center;
   font-size: 50px;
   font-weight: 650;
+  padding-top: 25px;
+}
+
+.table-container{
+  margin: 10px ;
 }
