@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../User';
+import {LocationStrategy} from '@angular/common';
 
 @Component({
   selector: 'app-oauth-login',
@@ -21,7 +22,8 @@ export class OauthLoginComponent implements OnInit {
   userInfo = {email: '', username: ''};
 
   // init constructor for code exchange
-  constructor(private router: Router, private u: User) {
+  constructor(private router: Router, private u: User,
+              private ls: LocationStrategy) {
     this.exchangeToken();
   }
 
@@ -41,7 +43,7 @@ export class OauthLoginComponent implements OnInit {
       client_id: cid,
       client_secret: secret,
       grant_type: 'authorization_code',
-      redirect_uri: window.location.origin + '/gaming-platform/login/callback',
+      redirect_uri: window.location.origin + this.ls.getBaseHref() + 'login/callback',
       code: codeExchange,
       scope: 'identify email',
     };
