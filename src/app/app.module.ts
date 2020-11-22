@@ -32,6 +32,7 @@ import { OauthLoginComponent } from './oauth-login/oauth-login.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DebugComponent } from './debug/debug.component';
 import { LoginComponent } from './login/login.component';
+import { LandingPageComponent } from './landing-page/landing-page.component';
 
 
 @NgModule({
@@ -55,7 +56,8 @@ import { LoginComponent } from './login/login.component';
     SearchComponent,
     LetterBoldPipe,
     SearchFilterPipe,
-    ClickOutsideDirective
+    ClickOutsideDirective,
+    LandingPageComponent
   ],
   imports: [
     BrowserModule,

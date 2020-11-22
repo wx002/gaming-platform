@@ -1,3 +1,4 @@
+import { LandingPageComponent } from './landing-page/landing-page.component';
 import { AddedlistsComponent } from './addedlists-list/addedlists-list.component';
 import { LoginComponent } from './login/login.component';
 import { DebugComponent } from './debug/debug.component';
@@ -12,13 +13,12 @@ import {GamesComponent} from './games/games.component';
 import {MygamesComponent} from './mygames/mygames.component';
 import { AddgamesComponent } from './addgames/addgames.component';
 
-
-
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full' },
+  {path: '', redirectTo: '/landingpage', pathMatch: 'full' },
   {path: 'games', component: GamesComponent, children: [{
     path: 'games?index=type', component: GamesComponent
   }]},
+  {path: 'landingpage', component: LandingPageComponent},
   {path: 'home', component: HomeComponent},
   {path: 'lists', component: AddedlistsComponent},
   {path: 'gameDisplay', component: GamedisplayComponent, children: [{
