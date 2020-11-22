@@ -1,5 +1,6 @@
+import { LoginComponent } from './../login/login.component';
 import { Component, OnInit } from '@angular/core';
-import { Router,  } from '@angular/router';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-landing-page',
@@ -14,7 +15,7 @@ export class LandingPageComponent implements OnInit {
   }
 
   loginRedirect(){
-    this.router.navigate([ '/home' ]);
+    this.router.navigate([ '/login' ]);
  }
 
  homepageRedirect(){

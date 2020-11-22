@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { FormControl, FormGroup } from "@angular/forms";
+import { FormControl, FormGroup } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 
@@ -10,7 +10,7 @@ export class ListsService {
   constructor(public firestore: AngularFirestore) {}
 
   form = new FormGroup({
-    listTitle: new FormControl(""),
+    listTitle: new FormControl(''),
     listComments: new FormControl(""),
     listGames: new FormControl(""),
     private: new FormControl(false)
