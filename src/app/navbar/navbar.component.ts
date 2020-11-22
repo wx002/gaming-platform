@@ -13,6 +13,7 @@ export class NavbarComponent implements OnInit {
   userInfo;
   constructor(@Inject(DOCUMENT) private d: Document, private router: Router, private u: User, ) {
     this.userInfo = u.get();
+    console.log(`userInfo = ${this.userInfo}`);
   }
   ngOnInit(): void {
   }
@@ -31,7 +32,11 @@ export class NavbarComponent implements OnInit {
   logoff(): void{
     this.u.clear();
     // redirect
-    this.d.location.href = window.location.origin + '/home';
+    this.router.navigateByUrl('/home');
+  }
+
+  initSession(): void{
+    localStorage.setItem('EmailID', '');
   }
 
 }
