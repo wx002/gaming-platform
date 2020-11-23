@@ -1,0 +1,53 @@
+
+<style type="text/css">
+  .profile-editor {
+    width: 500px;
+    margin: 100px auto;
+  }
+</style>
+
+
+<app-navbar></app-navbar>
+<br>
+
+<div class="profile-editor">
+  <br>
+  <h2>User Profile</h2>
+  <hr />
+  <br>
+    <div *ngFor="let profile of profiles; index as i">
+      <div *ngIf="i==0">
+        <div class="form-row">
+          <label>User Name:</label>
+          <input class="form-control" #userName="ngModel" required [(ngModel)]="profile.userName" name="userName" disabled/>
+        </div>
+
+        <div class="form-row">
+          <label>Email:</label>
+          <input class="form-control" #email="ngModel" [(ngModel)]="profile.email" name="email" disabled/>
+        </div>
+
+        <div class="form-row">
+          <label>Gender:</label>
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="profile.gender"
+            name="gender disabled" disabled
+          />
+        </div>
+
+        <div class="form-row">
+          <label>Phone:</label>
+          <input class="form-control" #phone="ngModel" [(ngModel)]="profile.phone" name="phone" disabled/>
+        </div>
+
+        <br>
+
+        <div class="form-row">
+          <button class="btn btn-primary form-group col-md-6 mb-5" (click) = "updateProfile()">Edit Profile</button>
+        </div>
+      </div>
+    </div>
+
+</div>
