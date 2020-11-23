@@ -1,1 +1,164 @@
-<p>user-profile works!</p>
+User Info: {{userInfo.username}}
+
+<div *ngIf="isNew; else update" class="profile-editor">
+  <br>
+  <h2>Creat Profile</h2>
+  <hr />
+  <br>
+  <form #profileForm="ngForm" appEqualValidator (ngSubmit)="onSubmit(profileForm)">
+    <div class="form-row">
+    <label>User Name:</label>
+      <input class="form-control" #userName="ngModel" required [(ngModel)]="profile.userName" name="userName" />
+      <div *ngIf="userName.dirty && userName.errors" class="alert alert-danger">
+        <span>Please type your first name</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Email:</label>
+      <input class="form-control" required minlength="4" appForbiddenName="bob" #email="ngModel" [(ngModel)]="profile.email" name="email" />
+      <div *ngIf="email.dirty && email.errors as errors" class="alert alert-danger">
+        <span *ngIf="errors.required">Please type your last name</span>
+        <span *ngIf="errors.minlength">至少4个字</span>
+        <span *ngIf="errors.forbiddenName">{{ errors.forbiddenName.value }}</span>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Gender:</label>
+      <select class="form-control" name="gender" [(ngModel)]="profile.gender">
+        <option *ngFor="let val of Gender" [value]="val">
+          {{val}}
+        </option>
+      </select>
+    </div>
+
+    <div class="form-row">
+      <div>
+        <label>Password:</label>
+        <input class="form-control" required #password="ngModel" [(ngModel)]="profile.password" name="password" />
+
+        <div *ngIf="password.dirty && password.errors" class="alert alert-danger">
+          <span>Please enter the password</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="form-row">
+    <div>
+      <label>confirmPassword:</label>
+      <input class="form-control" required #confirmPassword="ngModel" [(ngModel)]="profile.confirmPassword" name="confirmPassword" />
+
+      <div *ngIf="confirmPassword.dirty && confirmPassword.errors" class="alert alert-danger">
+          <span>Please re-enter the password</span>
+        </div>
+      </div>
+      <div *ngIf="profileForm.errors" class="cross-validation-error-message alert alert-danger">
+        {{ profileForm.errors.equal }}
+      </div>
+    </div>
+
+    <div class="form-row">
+      <label>Phone:</label>
+      <input class="form-control" #phone="ngModel" [(ngModel)]="profile.phone" name="phone" />
+      <div *ngIf="phone.dirty && email.errors as errors" class="alert alert-danger">
+        <span *ngIf="errors.required">Please type your phone number</span>
+      </div>
+    </div>
+
+    <br>
+
+    <div class="form-row">
+      <button class="btn btn-primary form-group col-md-6 mb-5" type="submit">submit</button>
+      <button class="btn btn-secondary form-group col-md-6 mb-5" type="button" (click)="onReset(profileForm)">Reset</button>
+    </div>
+
+    <div *ngIf="submitted">
+      <h4>You submitted successfully!</h4>
+    </div>
+  </form>
+</div>
+
+<ng-template #update class="profile-editor">
+  <div class="profile-editor">
+    <br>
+    <h2>Edit Profile</h2>
+    <hr />
+    <br>
+    <form #profileForm="ngForm" appEqualValidator (ngSubmit)="onSubmit(profileForm)">
+      <div class="form-row">
+        <label>User Name:</label>
+        <input class="form-control" #userName="ngModel" required [(ngModel)]="profile.userName" name="userName" />
+        <div *ngIf="userName.dirty && userName.errors" class="alert alert-danger">
+          <span>Please type your first name</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Email:</label>
+        <input class="form-control" required minlength="4" appForbiddenName="bob" #email="ngModel" [(ngModel)]="profile.email" name="email" />
+        <div *ngIf="email.dirty && email.errors as errors" class="alert alert-danger">
+          <span *ngIf="errors.required">Please type your last name</span>
+          <span *ngIf="errors.minlength">至少4个字</span>
+          <span *ngIf="errors.forbiddenName">{{ errors.forbiddenName.value }}</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Gender:</label>
+        <select class="form-control" name="gender" [(ngModel)]="profile.gender">
+          <option *ngFor="let val of Gender" [value]="val">
+            {{val}}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <div>
+          <label>Password:</label>
+          <input class="form-control" required #password="ngModel" [(ngModel)]="profile.password" name="password" />
+
+          <div *ngIf="password.dirty && password.errors" class="alert alert-danger">
+            <span>Please enter the password</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-row">
+        <div>
+          <label>confirmPassword:</label>
+          <input class="form-control" required #confirmPassword="ngModel" [(ngModel)]="profile.confirmPassword" name="confirmPassword" />
+
+          <div *ngIf="confirmPassword.dirty && confirmPassword.errors" class="alert alert-danger">
+            <span>Please re-enter the password</span>
+          </div>
+        </div>
+        <div *ngIf="profileForm.errors" class="cross-validation-error-message alert alert-danger">
+          {{ profileForm.errors.equal }}
+        </div>
+      </div>
+
+      <div class="form-row">
+        <label>Phone:</label>
+        <input class="form-control" #phone="ngModel" [(ngModel)]="profile.phone" name="phone" />
+        <div *ngIf="phone.dirty && email.errors as errors" class="alert alert-danger">
+          <span *ngIf="errors.required">Please type your phone number</span>
+        </div>
+      </div>
+
+      <br>
+
+      <div class="form-row">
+        <button class="btn btn-primary form-group col-md-6 mb-5" type="button" (click)="updateProfile()" >Update</button>
+        <button class="btn btn-secondary form-group col-md-6 mb-5" type="button" (click)="onReset(profileForm)">Reset</button>
+        <p>{{ message }}</p>
+      </div>
+
+      <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+      </div>
+    </form>
+  </div>
+</ng-template>

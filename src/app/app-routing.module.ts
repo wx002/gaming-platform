@@ -12,6 +12,9 @@ import { Routes, RouterModule } from '@angular/router';
 import {GamesComponent} from './games/games.component';
 import {MygamesComponent} from './mygames/mygames.component';
 import { AddgamesComponent } from './addgames/addgames.component';
+import {UserProfileComponent} from './user-profile/user-profile.component';
+import { ProfiledisplayComponent } from './profiledisplay/profiledisplay.component';
+import { SubscribeListsComponent } from './subscribe-lists/subscribe-lists.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/landingpage', pathMatch: 'full' },
@@ -35,6 +38,9 @@ const routes: Routes = [
     { path: 'myGames/:id', component: MygamesComponent }
   ]},
   {path: 'addgames', component: AddgamesComponent},
+  {path: 'user-profile/:id', component: UserProfileComponent},
+  {path: 'profileDisplay', component: ProfiledisplayComponent},
+  {path: 'subscribeList', component: SubscribeListsComponent},
 ];
 
 
