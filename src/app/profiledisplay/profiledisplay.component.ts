@@ -1,6 +1,6 @@
 import {AfterContentInit, Component, OnInit} from '@angular/core';
 import { map } from 'rxjs/operators';
-import {ProfileService} from '../user-profile/profile.service'
+import {ProfileFirestoreService} from '../user-profile/profile.firestore.service'
 import { Router } from '@angular/router';
 import {User} from "../User";
 
@@ -17,7 +17,7 @@ export class ProfiledisplayComponent implements OnInit, AfterContentInit {
   currentIndex = -1;
   title = '';
 
-  constructor(u: User, private pService: ProfileService, private router: Router) {
+  constructor(u: User, private pfService: ProfileFirestoreService, private router: Router) {
     this.userInfo = JSON.stringify(u.get());
 
   }
@@ -37,10 +37,10 @@ export class ProfiledisplayComponent implements OnInit, AfterContentInit {
   }
 
   retrieveProfiles(): void {
-    this.pService.getAll().snapshotChanges().pipe(
+    this.pfService.getAll().snapshotChanges().pipe(
       map(changes =>
         changes.map(c =>
-          ({ key: c.payload.key, ...c.payload.val() })
+          ({ key: c.payload.doc.id, ...c.payload.doc.data() })
         )
       )
     ).subscribe(data => {
@@ -48,15 +48,18 @@ export class ProfiledisplayComponent implements OnInit, AfterContentInit {
     });
   }
 
+
+
+
+  switch(){
+
+  }
+
+
   updateProfile(): void{
     //this.router.navigate([ '/addgames' ])
 
   }
 
 
-  removeAllProfiles(): void {
-    this.pService.deleteAll()
-      .then(() => this.refreshList())
-      .catch(err => console.log(err));
-  }
 }

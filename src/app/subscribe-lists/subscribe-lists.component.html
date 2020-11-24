@@ -29,12 +29,12 @@
       </thead>
       <tbody>
       <!--Table Content-->
-      <tr *ngFor="let list of slists; index as i">
+      <tr *ngFor="let list of subcribleLists; index as i">
         <td scope="row">{{i+1}}</td>
-        <td><a class="active" (click)="showDetails(list.title)">{{list.title}}</a></td>
-        <td>{{list.user}}</td>
-        <td>{{list.description}}</td>
-        <td><a class="active" (click)="deleteList(list.key)">delete</a></td>
+        <td><a class="active" (click)="showDetails(list.payload.doc.data().title)">{{list.payload.doc.data().title}}</a></td>
+        <td>{{list.payload.doc.data().user}}</td>
+        <td>{{list.payload.doc.data().description}}</td>
+        <td><a class="active" (click)="delete(list.payload.doc.id)">delete</a></td>
       </tr>
       </tbody>
 

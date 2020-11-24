@@ -3,10 +3,10 @@ import { Router } from '@angular/router';
 import { User } from '../User';
 import {LocationStrategy} from '@angular/common';
 
-import { AngularFirestore } from '@angular/fire/firestore';
-import {ProfileService} from '../user-profile/profile.service'
+import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import userProfile from '../user-profile/userProfile';
 import {ActivatedRoute} from "@angular/router";
+import {ProfileFirestoreService} from "../user-profile/profile.firestore.service";
 
 @Component({
   selector: 'app-oauth-login',
@@ -28,11 +28,14 @@ export class OauthLoginComponent implements OnInit {
 
   // added by jingyi
   profile: userProfile = new userProfile();
+  userProfileCollection: AngularFirestoreCollection<userProfile>;
+  userProfiles: any;
+
 
   // init constructor for code exchange
   constructor(private router: Router, private u: User,
               private ls: LocationStrategy,
-              private pService: ProfileService, private routerInfor: ActivatedRoute) {
+              private pfService: ProfileFirestoreService, private routerInfor: ActivatedRoute) {
     this.exchangeToken();
   }
 
@@ -92,9 +95,7 @@ export class OauthLoginComponent implements OnInit {
 
         // added by Jingyi Huang 2020-11-22
         // create new user profile (username, email)
-        if(!this.checkUserProfile(this.userInfo.email)){
-          this.initUserProfile();
-        }
+        this.checkUserProfile(this.userInfo.email);
 
         // we are now successfully logged in and verify by discord, proceed to home page
         this.router.navigateByUrl('/home');
@@ -117,16 +118,32 @@ export class OauthLoginComponent implements OnInit {
   }
 
   initUserProfile(): void {
+    //console.log('+++++++++++++++++++++');
+
     this.profile.userName = this.userInfo.username;
     this.profile.email = this.userInfo.email;
     this.profile.gender = '';
     this.profile.phone = '';
 
-    this.pService.create(this.profile).then(() => {
-      console.log('Created new item successfully!');
+    this.pfService.create(this.profile).then(() => {
+      console.log('Created new profile successfully!');
     });
   }
-  checkUserProfile(val:string): boolean{
-    return false;
+  checkUserProfile(email:string): void{
+    //console.log('--------------------------');
+    this.pfService.queryByEmail(email).subscribe(res =>
+      { if(res.length == 0){
+        this.initUserProfile();
+      }else{
+        //console.log(res);
+      }
+      }
+    );
+
   }
+
+
+
+
+
 }

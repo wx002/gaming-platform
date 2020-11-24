@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ListsService } from '../shared/lists.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import {SubscribleFirestoreService} from "../subscribe-lists/subscrible.firestore.service";
+import subscribledList from "../subscribe-lists/subscrible";
 
 @Component({
   selector: 'app-addedlists-list',
@@ -16,8 +18,10 @@ export class AddedlistsComponent implements OnInit {
    games$: any;
    currentlist= false;
    currentIndex;
+  //
+  sList: subscribledList = new subscribledList();
 
-  constructor(private router: Router, public listsService: ListsService, private routerInfor: ActivatedRoute) { }
+  constructor(private service: SubscribleFirestoreService,private router: Router, public listsService: ListsService, private routerInfor: ActivatedRoute) { }
 
   ngOnInit() {
     this.getAllListsAlphabetically();
@@ -197,4 +201,17 @@ export class AddedlistsComponent implements OnInit {
     this.listsService
       .getListsAlphabeticallyZ()
       .subscribe(res => (this.gameLists = res));
+
+  Subscribe(listTitle: string, listComments: string){
+
+    this.sList.title = listTitle;
+    this.sList.description = listComments;
+
+    console.log(this.sList);
+
+    this.service.create(this.sList).then(() => {
+      console.log('Created new item successfully!');
+    });
+  }
+
   }

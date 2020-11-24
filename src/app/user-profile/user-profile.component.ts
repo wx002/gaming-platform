@@ -68,6 +68,7 @@ export class UserProfileComponent implements OnInit {
     f.reset();
   }
 
+
   Gender: string[] = [
     'Female',
     'Male',
