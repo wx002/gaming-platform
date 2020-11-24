@@ -1,26 +1,17 @@
 <app-navbar></app-navbar>
 <div class="alphabetical search">
   <ul id='menu' style="padding: 20px;">
-      <b>Alphabetical Indexs    </b>
-      <li><a href= "#"> # </a></li>
+      <b>Alphabetical Indexs</b>
       <li *ngFor="let letter of alphaListing">
-        <a href="/games?index={{letter}}">  {{letter}}  </a>
-        <!--TODO: Add changes to listing below on index selection-->
+        <a [routerLink]="['/games']" [queryParams]="{index:letter}">{{letter}}</a>
       </li>
   </ul>
 
 </div>
 <div class="search result" style="padding: 20px;">
   <ul>
-      <li><img src= "https://cdn-products.eneba.com/resized-products/InlPQPt7WRDHBRnySANJHVQrS2whLdUdTX9JB7djmGw_350x200_3x-0.jpeg"
-          width="120" height="130" alt= "Among Us"><a href="/gameDisplay?game=among_us">Among Us</a></li>
-      <li><img src= "https://upload.wikimedia.org/wikipedia/en/1/1f/Animal_Crossing_New_Horizons.jpg"
-          width="120" height="130" alt= "Among Us"><a href="#">Animal Crossing New Horizon</a></li>
-      <li><img src= "https://ubistatic19-a.akamaihd.net/ubicomstatic/en-us/global/game-info/ubicom-assassins_creed_1-search-gameinfo-boxart-348x434_mobile_278344.jpg"
-          width="120" height="130" alt= "Among Us"><a href="#">Assassin's Creed</a></li>
+    <li *ngFor="let g of serviceGames | async;">
+      <a [routerLink]="['/games']" [queryParams]="{game:g}" >{{g}}</a>
+    </li>
   </ul>
-  <div>
-    <b>Note: This is only meant for debugging purpose </b> <br>
-    User Info: {{userInfo}}
-  </div>
 </div>

@@ -13,7 +13,7 @@ export class NavbarComponent implements OnInit {
   userInfo;
   constructor(@Inject(DOCUMENT) private d: Document, private router: Router, private u: User, ) {
     this.userInfo = u.get();
-    console.log(`userInfo = ${this.userInfo}`);
+    // console.log(`userInfo = ${this.userInfo}`);
   }
   ngOnInit(): void {
   }
