@@ -30,6 +30,7 @@ export class GamesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
   }
 
   getAllGames(): string[]{
@@ -47,11 +48,4 @@ export class GamesComponent implements OnInit {
     }
     return indexGames;
   }
-
-  reloadPage(): void{
-    const indexVar = this.route.snapshot.queryParams[`index`];
-    //this.router.navigate(['/games'], {queryParams: {index: indexVar}})
-    //.then();
-  }
-
 }

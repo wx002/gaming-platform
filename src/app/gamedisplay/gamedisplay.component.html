@@ -1,24 +1,24 @@
 <app-navbar></app-navbar>
 <div class="row">
   <div class="col-3" align="center">
-      <img src="https://cdn-products.eneba.com/resized-products/InlPQPt7WRDHBRnySANJHVQrS2whLdUdTX9JB7djmGw_350x200_3x-0.jpeg"
-       width="140" height="140" alt="Cover">
+      <img src=""
+       width="140" height="140" alt="Future Addition">
   </div>
 
   <div class="col-6">
-      <h4>Among Us</h4>
-      <p>Join your crewmates in a multiplayer game of teamwork and betrayal!
-      <br>Play online or over local wifi with 4-10 players as you attempt to hold your spaceship
-          together and return back to civilization. But beware...as there may be an alien impostor aboard!
+      <h4>{{game.title}}</h4>
+      <p>{{game.desc}}
       </p>
   </div>
 
   <div class="col-3">
       <h5>Game Details</h5>
-      <p>Release Date: June 15, 2018
-      <br>Genre: Sci-fi
-      <br>Type: Multiplace, Online Co-Op, Indie
-      <br>Developer: Innersloth
+      <p>Genre: {{game.genre}}
+      <br>Type: {{game.type}}
+      <br>Developer: {{game.publisher}}
+      <br>Platform: {{game.platforms}}
+      <br>Postive Rate: {{game.postiveRate}}
+      <br>Negative Rate: {{game.negativeRate}}
       </p>
   </div>
 </div>
@@ -37,9 +37,5 @@
           <br>
           <input type = "submit" value ="Submit">
       </form>
-  </div>
-  <div>
-    <b>Note: This is only meant for debugging purpose </b> <br>
-    User Info: {{userInfo}}
   </div>
 </div>

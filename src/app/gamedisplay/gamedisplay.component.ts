@@ -1,14 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { gamesData } from '../services/gamesData';
 import { User } from '../User';
 
 export class GameInfo {
-  public cover: string;
   public title: string;
-  public bio: string;
-  public release_date: string;
+  public desc: string;
   public genre: string;
   public type: string;
-  public developer: string;
+  public publisher: string;
+  public postiveRate: string;
+  public negativeRate: string;
+  public platforms: string;
 }
 
 @Component({
@@ -18,21 +21,25 @@ export class GameInfo {
 })
 export class GamedisplayComponent implements OnInit {
   public userInfo;
-  constructor(u: User) {
-    this.userInfo = JSON.stringify(u.get());
-    console.log(this.userInfo);
+  constructor(u: User, private route: ActivatedRoute) {
+
   }
 
   game = new GameInfo();
 
   ngOnInit(): void {
-    this.game.bio = 'Join your crewmates in a multiplayer game of teamwork and betrayal! Play online or over local wifi with 4-10 players as you attempt to hold your spaceship together and return back to civilization. But beware...as there may be an alien impostor aboard!';
-    this.game.cover = 'https://cdn-products.eneba.com/resized-products/InlPQPt7WRDHBRnySANJHVQrS2whLdUdTX9JB7djmGw_350x200_3x-0.jpeg';
-    this.game.developer = 'Innersloth';
-    this.game.genre = 'Sci-fi';
-    this.game.release_date = 'June 15, 2018';
-    this.game.title = 'Among Us';
-    this.game.type = 'Multiplace, Online Co-Op, Indie';
+    const gameLib = gamesData;
+    const gameTitle = this.route.snapshot.queryParams[`game`];
+    const selectedGame = gameLib[gameTitle];
+    this.game.title = selectedGame['Name'];
+    this.game.desc = selectedGame['Desc'];
+    this.game.publisher = selectedGame['Publisher'];
+    this.game.platforms = selectedGame['Platforms'];
+    this.game.type = selectedGame['Type'];
+    this.game.genre = selectedGame['Genre'];
+    this.game.postiveRate = selectedGame['Positive_ratings'];
+    this.game.negativeRate = selectedGame['Negative_ratings'];
+
   }
 
 

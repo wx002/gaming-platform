@@ -6,15 +6,19 @@ import { gamesData } from './../services/gamesData';
 export class GameDataService{
   getGames(index: string): Observable<string[]>{
     const allGames = Object.keys(gamesData);
-    if (index === '' || index === '#'){
+    if (index === '' || index === '#' || index === null){
       return of(allGames);
     } else{
       const indexGames = [];
       let g;
-      for (g in allGames){
-        if (allGames[g][0] === index || allGames[g][0] === index.toLocaleUpperCase()){
-          indexGames.push(allGames[g]);
+      if(index){
+        for (g in allGames){
+          if (allGames[g][0] === index || allGames[g][0] === index.toLocaleUpperCase()){
+            indexGames.push(allGames[g]);
+          }
         }
+      }else{
+        return of(allGames);
       }
       return of(indexGames);
     }

@@ -31,6 +31,7 @@
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/lists']">Lists</a>
           </li>
+          <ng-template [ngIf]="isLogin()">
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="hrefDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               My Games
@@ -40,6 +41,7 @@
           <!--   <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a> -->
             </div>
           </li>
+        </ng-template>
           <!--
           <li class="nav-item">
             <a class="nav-link" [routerLink]="['/myGames']">My Games</a>

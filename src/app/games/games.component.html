@@ -11,7 +11,7 @@
 <div class="search result" style="padding: 20px;">
   <ul>
     <li *ngFor="let g of serviceGames | async;">
-      <a [routerLink]="['/games']" [queryParams]="{game:g}" >{{g}}</a>
+      <a [routerLink]="['/gameDisplay']" [queryParams]="{game:g}" >{{g}}</a>
     </li>
   </ul>
 </div>
