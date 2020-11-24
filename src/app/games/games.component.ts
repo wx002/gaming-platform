@@ -1,3 +1,5 @@
+import { gamesData } from './../services/gamesData';
+import { GameInfo } from './../gamedisplay/gamedisplay.component';
 import { Component, OnInit } from '@angular/core';
 import { User } from '../User';
 
@@ -15,7 +17,6 @@ export class GamesComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
   }
 
 }

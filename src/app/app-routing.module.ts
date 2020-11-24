@@ -28,7 +28,6 @@ const routes: Routes = [
   {path: 'login/callback', component: OauthLoginComponent, children: [{
     path: 'login/callback?code=type', component: OauthLoginComponent
   }]},
-  {path: 'debug', component: DebugComponent},
   {path: 'login', component: LoginComponent},
   {path: 'myGames', component: MygamesComponent,
   children: [
