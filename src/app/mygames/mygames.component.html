@@ -48,7 +48,7 @@
           <!--
                     <a [routerLink]="['/myGames', i]">{{ list.payload.doc.data().listTitle }}</a>
           -->
-          <a (click)="refresh(i)" class="active">{{ list.payload.doc.data().listTitle }}</a>
+          <a (click)="refresh(i)" class="text-info">{{ list.payload.doc.data().listTitle }}</a>
 
         </td>
         <td
@@ -104,7 +104,7 @@
       <tr *ngFor="let game of gameLists[currentIndex].payload.doc.data().gameList; index as i">
         <td scope="row">{{i+1}}</td>
         <td scope="row"><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
-        <td><a href="#">{{game}}</a></td>
+        <td><a href="#" class="text-info">{{game}}</a></td>
         <td></td>
         <td></td>
         <td></td>

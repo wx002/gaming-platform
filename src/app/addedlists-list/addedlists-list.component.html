@@ -53,6 +53,7 @@
     <li><a role="button" (click)="getListsAlphabeticallyX()" class="text-info"> x </a></li>
     <li><a role="button" (click)="getListsAlphabeticallyY()" class="text-info"> y </a></li>
     <li><a role="button" (click)="getListsAlphabeticallyZ()" class="text-info"> z </a></li>
+    <li><a role="button" (click)="getAllListsAlphabetically()" class="text-info"> ..all </a></li>
     </ul>
 </div>
 </div>
@@ -93,31 +94,30 @@
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
-        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        <button class="btn btn-link text-info" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
           +/- List
         </button>
       </h5>
     </div>
 
     <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
-      <div class="card-body">
+      <div class="card-body justify-content-center ">
 
             <thead class="thead-light">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">Image</th>
-              <th scope="col">Title</th>
-              <th scope="col">Description</th>
-              <th scope="col">Genre</th>
-              <th scope="col">Platforms</th>
-              <th scope="col">Rating</th>
+              <th >#</th>
+              <th >Image</th>
+              <th >Title</th>
+              <th >Description</th>
+              <th >Genre</th>
+              <th >Platforms</th>
+              <th >Rating</th>
             </tr>
             </thead>
-
             <tbody *ngIf="currentlist">
             <tr *ngFor="let game of gameLists[currentIndex].payload.doc.data().gameList; index as i">
-              <td scope="row">{{i+1}}</td>
-              <td scope="row"><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
+              <td>{{i+1}}</td>
+              <td><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
               <td><a href="#">{{game}}</a></td>
               <td></td>
               <td></td>
@@ -129,58 +129,3 @@
     </div>
   </div>
 </div>
-
-
-<!-- <ul class="pagination">
-  <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-  <li class="active"><a href="#!">1</a></li>
-  <li class="waves-effect"><a href="#!">2</a></li>
-  <li class="waves-effect"><a href="#!">3</a></li>
-  <li class="waves-effect"><a href="#!">4</a></li>
-  <li class="waves-effect"><a href="#!">5</a></li>
-  <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-</ul> -->
-
-
-<!-- <table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Comments</th>
-      <th>Games</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <tr *ngFor="let list of gameLists">
-      <td>
-        {{ list.payload.doc.data().listTitle }}
-      </td>
-      <td>{{ list.payload.doc.data().listComments }}</td>
-      <td>
-        <span *ngFor="let game of list.payload.doc.data().gameList">
-          {{ game }}
-        </span>
-      </td>
-
-      <td
-        [hidden]="list.payload.doc.data().completed"
-        (click)="markPrivate(list)"
-      >
-        <i class="material-icons">visibility</i>
-       <!-- <i class="material-icons">check</i> -->
- <!--   </td>
-
-      <td
-        [hidden]="list.payload.doc.data().completed"
-        (click)="deleteList(list)"
-      >
-        <i class="material-icons">delete_forever</i>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
-  <li></li>
-</ul> -->
