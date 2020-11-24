@@ -24,7 +24,6 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
 import { GamesComponent } from './games/games.component';
-import { ListsComponent } from './lists/lists.component';
 import { MygamesComponent } from './mygames/mygames.component';
 import { GamedisplayComponent } from './gamedisplay/gamedisplay.component';
 import { AboutusComponent } from './aboutus/aboutus.component';
@@ -42,7 +41,6 @@ import { SubscribeListsComponent } from './subscribe-lists/subscribe-lists.compo
     HomeComponent,
     UserProfileComponent,
     GamesComponent,
-    ListsComponent,
     MygamesComponent,
     GamedisplayComponent,
     AboutusComponent,
