@@ -39,4 +39,7 @@ export class NavbarComponent implements OnInit {
     localStorage.setItem('EmailID', '');
   }
 
+  userInfor():void{
+    this.router.navigateByUrl('/profileDisplay');
+  }
 }

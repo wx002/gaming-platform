@@ -1,0 +1,78 @@
+<style type="text/css">
+  .subscribled {
+    width: 1000px;
+    margin: 50px auto;
+  }
+</style>
+
+<app-navbar></app-navbar>
+<br>
+
+<div class="subscribled">
+
+<!--  <div class="row">
+    <button class="btn btn-primary" (click) = "init()">Init Lists</button>
+  </div>-->
+
+  <div class="row">
+    <h2>My Subscribed Lists</h2>
+    <br>
+    <table class="table table-hover">
+      <thead class="thead-light">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">User</th>
+        <th scope="col">Description</th>
+        <th scope="col">Edit</th>
+      </tr>
+      </thead>
+      <tbody>
+      <!--Table Content-->
+      <tr *ngFor="let list of slists; index as i">
+        <td scope="row">{{i+1}}</td>
+        <td><a class="active" (click)="showDetails(list.title)">{{list.title}}</a></td>
+        <td>{{list.user}}</td>
+        <td>{{list.description}}</td>
+        <td><a class="active" (click)="deleteList(list.key)">delete</a></td>
+      </tr>
+      </tbody>
+
+    </table>
+  </div>
+  <br>
+  <br>
+
+
+    <div *ngIf="showDetail" class="row">
+      <h2>{{showTitle}}</h2>
+      <br>
+        <table class="table table-hover">
+          <thead class="thead-light">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Score</th>
+            <th scope="col">Type</th>
+          </tr>
+          </thead>
+
+          <tbody>
+          <!--Table Content-->
+          <tr *ngFor="let clist of customerLists; index as i">
+            <td scope="row">{{i+1}}</td>
+            <td scope="row"><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
+            <td><a href="#">{{clist.Title}}</a></td>
+            <td>{{clist.Description}}</td>
+            <td>{{clist.Score}}</td>
+            <td>{{clist.Type}}</td>
+          </tr>
+          </tbody>
+
+        </table>
+    </div>
+
+</div>
+

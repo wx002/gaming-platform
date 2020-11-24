@@ -33,7 +33,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DebugComponent } from './debug/debug.component';
 import { LoginComponent } from './login/login.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
-
+import { ProfiledisplayComponent } from './profiledisplay/profiledisplay.component';
+import { SubscribeListsComponent } from './subscribe-lists/subscribe-lists.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     LetterBoldPipe,
     SearchFilterPipe,
     ClickOutsideDirective,
-    LandingPageComponent
+    LandingPageComponent,
+    ProfiledisplayComponent,
+    SubscribeListsComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,10 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFirestoreModule,
+    AngularFireDatabaseModule
+
   ],
   providers: [User],
   bootstrap: [AppComponent]

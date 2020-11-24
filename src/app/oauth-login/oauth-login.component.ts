@@ -3,6 +3,11 @@ import { Router } from '@angular/router';
 import { User } from '../User';
 import {LocationStrategy} from '@angular/common';
 
+import { AngularFirestore } from '@angular/fire/firestore';
+import {ProfileService} from '../user-profile/profile.service'
+import userProfile from '../user-profile/userProfile';
+import {ActivatedRoute} from "@angular/router";
+
 @Component({
   selector: 'app-oauth-login',
   templateUrl: './oauth-login.component.html',
@@ -21,9 +26,13 @@ export class OauthLoginComponent implements OnInit {
   // user info class variable
   userInfo = {email: '', username: ''};
 
+  // added by jingyi
+  profile: userProfile = new userProfile();
+
   // init constructor for code exchange
   constructor(private router: Router, private u: User,
-              private ls: LocationStrategy) {
+              private ls: LocationStrategy,
+              private pService: ProfileService, private routerInfor: ActivatedRoute) {
     this.exchangeToken();
   }
 
@@ -80,6 +89,13 @@ export class OauthLoginComponent implements OnInit {
         // set this into our data service to use in other components
         this.u.setOption('email', this.userInfo.email);
         this.u.setOption('username', this.userInfo.username);
+
+        // added by Jingyi Huang 2020-11-22
+        // create new user profile (username, email)
+        if(!this.checkUserProfile(this.userInfo.email)){
+          this.initUserProfile();
+        }
+
         // we are now successfully logged in and verify by discord, proceed to home page
         this.router.navigateByUrl('/home');
       }
@@ -98,5 +114,19 @@ export class OauthLoginComponent implements OnInit {
       const accessCode = urlObj.query.code;
       return accessCode;
     }
+  }
+
+  initUserProfile(): void {
+    this.profile.userName = this.userInfo.username;
+    this.profile.email = this.userInfo.email;
+    this.profile.gender = '';
+    this.profile.phone = '';
+
+    this.pService.create(this.profile).then(() => {
+      console.log('Created new item successfully!');
+    });
+  }
+  checkUserProfile(val:string): boolean{
+    return false;
   }
 }

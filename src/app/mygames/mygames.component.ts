@@ -10,7 +10,9 @@ import { FormControl, FormGroup } from "@angular/forms";
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase/app';
 import { CollectionReference, Query } from '@firebase/firestore-types';
-
+import { DOCUMENT } from '@angular/common';
+import { Inject } from '@angular/core';
+import { User } from '../User';
 
 export interface List {
   title: string;
@@ -24,21 +26,23 @@ export interface List {
   styleUrls: ['./mygames.component.css']
 })
 export class MygamesComponent implements OnInit {
+
     // lists
     gameLists: any;
     myLists$;
 
     // games
     games$: any;
-
     currentlist= false;
     currentIndex;
 
 
-  constructor(private router: Router, public listsService:ListsService, private routerInfor: ActivatedRoute) {
+  constructor(private router: Router, public listsService:ListsService, private routerInfor: ActivatedRoute, @Inject(DOCUMENT) private d: Document, private u: User) {
+
   }
 
   ngOnInit() {
+
     this.getAllLists();
    // this.lists$.subscribe(data => console.log(data));
 

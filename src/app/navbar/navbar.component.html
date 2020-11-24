@@ -9,7 +9,7 @@
       <div class="header">
         <h1>My Game List
           <ng-template [ngIf]="isLogin()">
-            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;">Profile</button>
+            <button type="button" class="btn btn-secondary btn-sm" style="margin:5px;" (click)="userInfor()">Profile</button>
             <button type="button" class="btn btn-secondary btn-sm" (click)="logoff()"style="margin:5px;">Log Off</button>
           </ng-template>
           <ng-template [ngIf]="!isLogin()">
@@ -37,7 +37,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" [routerLink]="['/myGames']">My Lists</a>
-           <!--   <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a> -->
+          <!--   <a class="dropdown-item" href="MyFollowedLists.html">My Followed Lists</a> -->
             </div>
           </li>
           <!--
@@ -52,7 +52,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="routerLinkDropdown">
               <a class="dropdown-item" [routerLink]="['/myGames']">My Lists</a>
-              <a class="dropdown-item" [routerLink]="['/mylist']">My Followed Lists</a>
+              <a class="dropdown-item" [routerLink]="['/subscribeList']">My Followed Lists</a>
             </div>
           </li>
         </ng-template>
