@@ -17,6 +17,7 @@
       </div>
 
 
+
 <div class="alpha-container">
         <div class="index-tag">
           <p>
@@ -25,6 +26,7 @@
         </div>
   <div class="link-container">
     <ul>
+    <!--  <td><a href="#">{{game}}</a></td> -->
     <li><a role="button" (click)="getListsAlphabeticallyA()" class="text-info"> a </a></li>
     <li><a role="button" (click)="getListsAlphabeticallyB()" class="text-info"> b </a></li>
     <li><a role="button" (click)="getListsAlphabeticallyC()" class="text-info"> c </a></li>
@@ -67,22 +69,67 @@
   </thead>
 
   <tbody>
-    <tr *ngFor="let list of gameLists; let indexOfelement=index;">
+    <tr *ngFor="let list of gameLists; index as i">
+       <!-- <app-list-detail [list]="list"></app-list-detail> -->
       <td>
-        {{indexOfelement + 1}}
-        <!-- add list # -->
+        {{i + 1}}
       </td>
       <td>
         <!-- add users -->
       </td>
+      <div class="cell-container">
       <td>
-        {{ list.payload.doc.data().listTitle }}
+       <!-- <a (click)="showListDetail(list)" class="text-info">{{ list.payload.doc.data().listTitle }}</a> -->
+       <a (click)="refresh(i)" class="active" class="text-info">{{ list.payload.doc.data().listTitle }}</a>
       </td>
+    </div>
       <td>{{ list.payload.doc.data().listComments }}</td>
     </tr>
   </tbody>
 </table>
 </div>
+
+<div id="accordion">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          +/- List
+        </button>
+      </h5>
+    </div>
+
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+      <div class="card-body">
+
+            <thead class="thead-light">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Image</th>
+              <th scope="col">Title</th>
+              <th scope="col">Description</th>
+              <th scope="col">Genre</th>
+              <th scope="col">Platforms</th>
+              <th scope="col">Rating</th>
+            </tr>
+            </thead>
+
+            <tbody *ngIf="currentlist">
+            <tr *ngFor="let game of gameLists[currentIndex].payload.doc.data().gameList; index as i">
+              <td scope="row">{{i+1}}</td>
+              <td scope="row"><img [src]=getImgUrl(i+1) alt="" width="150" height="150"/></td>
+              <td><a href="#">{{game}}</a></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+            </tbody>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- <ul class="pagination">
   <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
